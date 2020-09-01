@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Dialog title="Associazione Raggruppamento" class="sapUiContentPadding" stretch="false">
+      <content>
+         <FlexBox direction="Column" justifyContent="End">
+            <Label text="Selezione Raggruppamento esistente"></Label>
+            <Select>
+               <items>
+                  <core:Item text="" key=""></core:Item>
+                  <core:Item text="Raggruppamento 1" key="R1"></core:Item>
+                  <core:Item text="Raggruppamento 2" key="R2"></core:Item>
+                  <core:Item text="Raggruppamento 3" key="R3"></core:Item>
+               </items>
+            </Select>
+
+         </FlexBox>
+         <Label text="Descrizione"></Label>
+         <Input />
+         <Label text="Descrizione Estesa"></Label>
+         <Input />
+         <Label text="Data Inizio Validità"></Label>
+         <DatePicker placeholder="Seleziona la data inizio" value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+         <Label text="Data Fine Validità"></Label>
+         <DatePicker placeholder="Seleziona la data inizio" value="" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+         <Label text="Dipende da UO"></Label>
+         <Input value="UO 00000" enabled="false" />
+         <Label text="Attribuito DA - A"></Label>
+         <DateRangeSelection value="01-09-2020/01-11-2020" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+      </content>
+      <beginButton>
+         <Button text="Annulla" press="onCloseSelectedDate" />
+      </beginButton>
+      <endButton>
+         <Button text="Salva" press="onSaveRaggruppamento" type="Accept" />
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,120 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tree="sap.ui.table" controllerName="sap.ui.bki.monitoraggio.turni.TreeTable" height="100%">
+
+	<Page showHeader="false" class="sapUiContentPadding">
+		<subHeader>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Title text="Seleziona Unità Organizzativa:"></Title>
+				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">
+					<core:Item text="" key=""></core:Item>
+					<core:Item text="Banca D'Italia" key="BKI"></core:Item>
+				</Select>
+				<ToolbarSpacer />
+				<Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button>
+
+				<ToolbarSpacer />
+			</Toolbar>
+		</subHeader>
+		<content>
+			<smartTable:SmartTable visible="{=${dataSource>/UO} === 'BKI'}" tableType="TreeTable" initialise="onSmartTableInit" editable="false" useVariantManagement="true" useTablePersonalisation="true">
+				<tree:TreeTable rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="14" visibleRowCountMode="Interactive">
+
+					<tree:Column grouped="false" autoResizable="true" width="400px">
+						<Label text="Macrostruttura Organizzativa" />
+						<tree:template>
+							<Text text="{name}" wrapping="true" maxLines="3" tooltip="{name}" width="100%">
+								<customData>
+									<core:CustomData key="typeRow" value='/{type}/' writeToDom="true" />
+								</customData>
+							</Text>
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true" resizable="false" width="55px">
+						<Label text="Type" />
+						<tree:template>
+							<core:Icon class="icon-type" src="{=${type} !== 'P' ? 'sap-icon://company-view' : 'sap-icon://customer'}" color="{=${type} !== 'P' &amp;&amp; ${type} !== 'R' ? '#E69A17' : '#031E48'}"></core:Icon>
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="Sigla" />
+						<tree:template>
+							<Text text="{sigla}" wrapping="false"></Text>
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="ID" />
+						<tree:template>
+							<Text text="{ID}" wrapping="false"></Text>
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="Responsabile" />
+						<tree:template>
+							<Input value="{responsabile}" name="editable" enabled="{Edit}" />
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="Inizio Validità" />
+						<tree:template>
+							<DatePicker value="{inizioValidita}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="Fine Validità" />
+						<tree:template>
+							<DatePicker value="{fineValidita}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="Attrubito Da" />
+						<tree:template>
+							<DatePicker value="{attribuitoDa}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Label text="Attrubito A" />
+						<tree:template>
+							<DatePicker value="{attribuitoA}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true" width="200px">
+						<Label text="Azioni" />
+						<tree:template>
+							<FlexBox alignItems="Center" justifyContent="Start" alignContent="Center">
+								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" visible="{= ${name} === 'Raggruppamento'}" press="onEditableTreeTable"></Button>
+								<Button type="Transparent" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://share" tooltip="Sposta" visible="false"></Button>
+								<Button type="Accept" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://add" visible="{= ${name} === 'Divisione' || ${name} === 'Reparto' || ${name} === 'Ufficio' || ${name} === 'Settori'}" tooltip="{= ${name} === 'Raggruppamento' ? 'Assegna Persone' : 'Crea Raggruppamento'}" press="onDialogAddRaggruppamenti">
+									<customData>
+										<core:CustomData key="multi" value="true" />
+										<core:CustomData key="remember" value="true" />
+									</customData>
+								</Button>
+								<Button type="Default" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://account" visible="{= ${name} === 'Raggruppamento'}" press="handleSelectDialogPress"></Button>
+								<Button type="Reject" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://delete" visible="{= ${name} === 'Raggruppamento'}"></Button>
+							</FlexBox>
+						</tree:template>
+					</tree:Column>
+
+				</tree:TreeTable>
+			</smartTable:SmartTable>
+		</content>
+		<footer>
+			<Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
+				<ToolbarSpacer />
+				<Button type="Emphasized" text="Gestione Raggruppamenti" press="onRaggruppamentoDialog" />
+				<Button type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
+				<!-- visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}"  -->
+
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

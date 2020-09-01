@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Dialog title="Seleziona Date" class="sapUiContentPadding" stretch="false">
+      <content>
+         <Label text="Data Inizio"></Label>
+         <DatePicker placeholder="Seleziona la data inizio" value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+         <FlexBox></FlexBox>
+         <Label text="Periodo previsto fino a"></Label>
+         <DatePicker placeholder="Seleziona la data inizio" value="" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false" editable="false"></DatePicker>
+         <FlexBox justifyContent="Start" direction="Row" alignContent="Stretch" alignItems="Center">
+            <items>
+               <Label text="Periodo: + " class="sapUiTinyMarginEnd"></Label>
+               <Input type="Number" width="50px" class="sapUiTinyMarginEnd" value="3"></Input>
+               <Select class="sapUiTinyMarginEnd" selectedKey="M">
+                  <items>
+                     <core:Item text="G - Giorni" key="G"></core:Item>
+                     <core:Item text="M - Mesi" key="M"></core:Item>
+                     <core:Item text="S - Settimane" key="S"></core:Item>
+                     <core:Item text="A - Anni" key="A"></core:Item>
+                  </items>
+               </Select>
+            </items>
+         </FlexBox>
+      </content>
+      <beginButton>
+         <Button text="Annulla" press="onCloseSelectedDate" />
+      </beginButton>
+      <endButton>
+         <Button text="Seleziona" press="onSelectedDate" type="Accept" />
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

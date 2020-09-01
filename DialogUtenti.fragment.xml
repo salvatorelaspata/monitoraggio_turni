@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <SelectDialog noDataText="Non ci sono persone da visualizzare" title="Seleziona Persone" search="handleSearch" confirm="handleClose" items="{
+      path: '/utenti'
+    }" multiSelect="true">
+      <StandardListItem title="{Nome}" description="{Cognome}" icon="{icon}" iconDensityAware="false" iconInset="false" type="Active" />
+   </SelectDialog>
+</core:FragmentDefinition>

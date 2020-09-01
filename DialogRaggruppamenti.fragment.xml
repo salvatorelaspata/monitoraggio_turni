@@ -1,0 +1,125 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Dialog title="Gestione Raggruppamenti" class="sapUiContentPadding" stretch="true">
+      <content>
+         <!-- <IconTabBar expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" selectedKey="{dataSource>/fabbisogniDialog}">
+            <items>
+               <IconTabFilter icon="sap-icon://multi-select" text="Lista" key="lista"> -->
+         <Table id="idProductsTable" inset="false">
+            <headerToolbar>
+               <Toolbar>
+                  <Title text="Raggruppamenti" level="H2" />
+                  <ToolbarSpacer />
+                  <!-- <Button type="Accept" text="Creazione Raggruppamento" press="onAddRaggruppamento"></Button> -->
+               </Toolbar>
+            </headerToolbar>
+            <columns>
+               <Column>
+                  <Text text="Descrizione" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="Codice" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                  <Text text="Data Inizio Validità" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                  <Text text="Data Fine Validità" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                  <Text text="Dipende da UO" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                  <Text text="Attribuito DA - A" />
+               </Column>
+               <!-- <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                  <Text text="Attrubuita A" />
+               </Column> -->
+               <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right" width="80px">
+                  <Text text="Modifica" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right" width="80px">
+                  <Text text="Cancella" />
+               </Column>
+            </columns>
+            <items>
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento 1" />
+                     <Text text="101010"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento 1" />
+                     <Text text="101010"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento 1" />
+                     <Text text="101010"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+            </items>
+         </Table>
+         <!-- </IconTabFilter>
+               <IconTabFilter icon="sap-icon://add" text="Crea" key="crea">
+                  <Label text="Data Inizio" />
+                  <DatePicker />
+                  <Label text="Data Fine" />
+                  <DatePicker />
+                  <Label text="Orario di Lavoro" />
+                  <Input />
+                  <Label text="N° Persone" />
+                  <Input />
+                  <Label text="Tipologia Giorno" />
+                  <MultiComboBox>
+                     <items>
+                        <core:Item text="Festivi" key="Festivi"></core:Item>
+                        <core:Item text="Feriali" key="Feriali"></core:Item>
+                        <core:Item text="Sabati" key="Sabati"></core:Item>
+                        <core:Item text="Domeniche" key="Domeniche"></core:Item>
+                     </items>
+                  </MultiComboBox>
+               </IconTabFilter>
+            </items>
+         </IconTabBar> -->
+      </content>
+
+      <beginButton>
+         <Button text="Chiudi" press="onCloseDialog" />
+      </beginButton>
+
+      <endButton>
+         <Button text="Salva" press="onSaveDialog" visible="{=${dataSource>/fabbisogniDialog} === 'crea'}" type="Accept" />
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,31 @@
+.icon-action {
+   font-size: 15px;
+}
+
+.icon-type {
+   font-size: 25px;
+}
+
+.icon-button > div > span::before {
+   /* color: red; */
+}
+
+[data-typecolor='/P/'] {
+   color: green;
+}
+
+[data-typecolor='/O/'] {
+   color: #031e48;
+}
+
+[data-typerow='/O/'] {
+   /* Attribute has this exact value */
+}
+[data-typerow='/P/'] {
+   font-weight: bold;
+   color: green;
+}
+[data-typerow='/R/'] {
+   font-weight: bold;
+   color: #031e48;
+}

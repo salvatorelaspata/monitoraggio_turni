@@ -12,7 +12,6 @@
 				</Select>
 				<ToolbarSpacer />
 				<Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button>
-
 				<ToolbarSpacer />
 			</Toolbar>
 		</subHeader>
@@ -25,7 +24,7 @@
 					<Button type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
 					<!-- visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}"  -->
 				</Toolbar>
-				<tree:TreeTable rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="13" visibleRowCountMode="Interactive">
+				<tree:TreeTable class="sapUiSmallMarginTop" rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="13" visibleRowCountMode="Interactive">
 
 					<tree:Column grouped="false" autoResizable="true" width="400px">
 						<Label text="Macrostruttura Organizzativa" />

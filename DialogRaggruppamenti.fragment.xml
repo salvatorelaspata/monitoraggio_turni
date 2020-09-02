@@ -88,6 +88,87 @@
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
+
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento D" />
+                     <Text text="1000004"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento E" />
+                     <Text text="1000005"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento F" />
+                     <Text text="1000006"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento G" />
+                     <Text text="1000007"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+
+               <ColumnListItem>
+                  <cells>
+                     <ObjectIdentifier title="Raggruppamento H" />
+                     <Text text="1000008"></Text>
+                     <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <Input value="UO 00000" enabled="false" />
+
+                     <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
+                     <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
+                  </cells>
+               </ColumnListItem>
+
             </items>
          </Table>
          <!-- </IconTabFilter>

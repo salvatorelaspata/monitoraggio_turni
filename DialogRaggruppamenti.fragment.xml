@@ -53,7 +53,7 @@
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
                      <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
-                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowRaggruppamenti"></Button>
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
@@ -68,7 +68,7 @@
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
                      <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
-                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowRaggruppamenti"></Button>
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
@@ -84,7 +84,7 @@
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
                      <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
-                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowRaggruppamenti"></Button>
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
@@ -100,7 +100,7 @@
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
                      <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
-                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowRaggruppamenti"></Button>
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
@@ -116,7 +116,7 @@
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
                      <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
-                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowRaggruppamenti"></Button>
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
@@ -164,7 +164,7 @@
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker> -->
                      <DateRangeSelection value="01-09-2020/01-11-2020" enabled="false" valueFormat="dd-MM-yyyy"></DateRangeSelection>
-                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno"></Button>
+                     <Button icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowRaggruppamenti"></Button>
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>

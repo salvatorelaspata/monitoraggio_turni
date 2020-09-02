@@ -92,7 +92,7 @@
 							<FlexBox alignItems="Center" justifyContent="Start" alignContent="Center">
 								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" visible="{= ${type} === 'R'}" press="onEditableTreeTable"></Button>
 								<Button type="Transparent" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://share" tooltip="Sposta" visible="false"></Button>
-								<Button type="Accept" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://add" visible="{= ${name} === 'Divisione' || ${name} === 'Reparto' || ${name} === 'Reparto 2' || ${name} === 'Ufficio' || ${name} === 'Ufficio 2' || ${name} === 'Settori' || ${name} === 'Settori 2'}" tooltip="{= ${type} === 'R' ? 'Assegna Persone' : 'Crea Raggruppamento'}" press="onDialogAddRaggruppamenti">
+								<Button type="Accept" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://add" visible="{= ${name} === 'Divisione 1' || ${name} === 'Divisione 2' || ${name} === 'Reparto' || ${name} === 'Reparto 2' || ${name} === 'Ufficio' || ${name} === 'Ufficio 2' || ${name} === 'Settori' || ${name} === 'Settori 2'}" tooltip="{= ${type} === 'R' ? 'Assegna Persone' : 'Crea Raggruppamento'}" press="onDialogAddRaggruppamenti">
 									<customData>
 										<core:CustomData key="multi" value="true" />
 										<core:CustomData key="remember" value="true" />

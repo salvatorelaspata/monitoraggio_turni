@@ -102,7 +102,7 @@ sap.ui.controller('sap.ui.bki.monitoraggio.turni.TreeTable', {
       this.editableRowRaggruppamenti = !this.editableRowRaggruppamenti;
       var cells = oEvn.getSource().getParent().getCells();
       cells.map(function (element, index) {
-         if (index !== 0 && index !== 6)
+         if (index !== 0 && index !== 1 && index !== 6 && index !== 7)
             element.setEnabled(self.editableRowRaggruppamenti);
       });
 

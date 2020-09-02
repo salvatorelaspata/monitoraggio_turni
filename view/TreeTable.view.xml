@@ -1,8 +1,9 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tree="sap.ui.table" controllerName="sap.ui.bki.monitoraggio.turni.TreeTable" height="100%">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tree="sap.ui.table" controllerName="sap.ui.bki.monitoraggio.turni.controller.TreeTable">
 
-	<Page showHeader="false" class="sapUiContentPadding">
+	<Page showHeader="false" showFooter="false" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack">
 		<subHeader>
 			<Toolbar>
+				<Button type="Back" press="onNavBack"></Button>
 				<ToolbarSpacer />
 				<Title text="Seleziona Unità Organizzativa:"></Title>
 				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">
@@ -17,7 +18,14 @@
 		</subHeader>
 		<content>
 			<smartTable:SmartTable visible="{=${dataSource>/UO} === 'BKI'}" tableType="TreeTable" initialise="onSmartTableInit" editable="false" useVariantManagement="true" useTablePersonalisation="true">
-				<tree:TreeTable rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="14" visibleRowCountMode="Interactive">
+
+				<Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
+					<ToolbarSpacer />
+					<Button type="Emphasized" text="Gestione Raggruppamenti" press="onRaggruppamentoDialog" />
+					<Button type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
+					<!-- visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}"  -->
+				</Toolbar>
+				<tree:TreeTable rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="13" visibleRowCountMode="Interactive">
 
 					<tree:Column grouped="false" autoResizable="true" width="400px">
 						<Label text="Macrostruttura Organizzativa" />
@@ -103,9 +111,10 @@
 							</FlexBox>
 						</tree:template>
 					</tree:Column>
-
 				</tree:TreeTable>
 			</smartTable:SmartTable>
+
+
 		</content>
 		<footer>
 			<Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
@@ -113,7 +122,6 @@
 				<Button type="Emphasized" text="Gestione Raggruppamenti" press="onRaggruppamentoDialog" />
 				<Button type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
 				<!-- visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}"  -->
-
 			</Toolbar>
 		</footer>
 	</Page>

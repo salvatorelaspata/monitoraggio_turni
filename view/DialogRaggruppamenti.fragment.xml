@@ -4,7 +4,7 @@
          <!-- <IconTabBar expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding" selectedKey="{dataSource>/fabbisogniDialog}">
             <items>
                <IconTabFilter icon="sap-icon://multi-select" text="Lista" key="lista"> -->
-         <Table id="idProductsTable" inset="false">
+         <Table inset="false">
             <headerToolbar>
                <Toolbar>
                   <Title text="Raggruppamenti" level="H2" />

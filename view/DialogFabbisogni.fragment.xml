@@ -51,7 +51,7 @@
                </fb:filterItems>
 
             </fb:FilterBar>
-            <Table id="idProductsTable" inset="false" items="{/fabbisogni}">
+            <Table inset="false" items="{/fabbisogni}">
                <headerToolbar>
                   <Toolbar>
                      <Title text="Fabbisogni" level="H2" />

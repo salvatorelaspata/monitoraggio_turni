@@ -1,0 +1,40 @@
+{
+   "TileCollection": [
+      {
+         "icon": "sap-icon://org-chart",
+         "number": "",
+         "numberUnit": "",
+         "title": "Gestione dell’Organizzazione",
+         "info": "(GTM)",
+         "infoState": "None",
+         "busy": false
+      },
+      {
+         "icon": "sap-icon://appointment-2",
+         "number": "",
+         "numberUnit": "",
+         "title": "Pianificazione addetto ai turni",
+         "info": "(AT)",
+         "infoState": "None",
+         "busy": true
+      },
+      {
+         "icon": "sap-icon://check-availability",
+         "number": "",
+         "numberUnit": "",
+         "title": "Pianificazione da approvare",
+         "info": "(CD/VCD)",
+         "infoState": "None",
+         "busy": true
+      },
+      {
+         "icon": "sap-icon://chart-table-view",
+         "number": "",
+         "numberUnit": "",
+         "title": "Reportistica",
+         "info": "(GTM)",
+         "infoState": "None",
+         "busy": true
+      }
+   ]
+}

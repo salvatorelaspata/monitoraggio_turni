@@ -44,10 +44,10 @@
             <items>
                <ColumnListItem>
                   <cells>
-                     <ObjectIdentifier title="Raggruppamento 1" />
-                     <Text text="101010"></Text>
+                     <ObjectIdentifier title="Raggruppamento A" />
+                     <Text text="1000001"></Text>
                      <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
-                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="31-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <Input value="UO 00000" enabled="false" />
 
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
@@ -59,10 +59,10 @@
                </ColumnListItem>
                <ColumnListItem>
                   <cells>
-                     <ObjectIdentifier title="Raggruppamento 1" />
-                     <Text text="101010"></Text>
+                     <ObjectIdentifier title="Raggruppamento B" />
+                     <Text text="1000002"></Text>
                      <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
-                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-10-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <Input value="UO 00000" enabled="false" />
 
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
@@ -75,10 +75,10 @@
 
                <ColumnListItem>
                   <cells>
-                     <ObjectIdentifier title="Raggruppamento 1" />
-                     <Text text="101010"></Text>
+                     <ObjectIdentifier title="Raggruppamento C" />
+                     <Text text="1000003"></Text>
                      <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
-                     <DatePicker value="01-11-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
+                     <DatePicker value="01-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>
                      <Input value="UO 00000" enabled="false" />
 
                      <!-- <DatePicker value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="false"></DatePicker>

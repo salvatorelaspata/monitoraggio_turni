@@ -168,7 +168,6 @@
                      <Button icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button>
                   </cells>
                </ColumnListItem>
-
             </items>
          </Table>
          <!-- </IconTabFilter>

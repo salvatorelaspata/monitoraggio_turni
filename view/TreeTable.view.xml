@@ -1,9 +1,9 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tree="sap.ui.table" controllerName="sap.ui.bki.monitoraggio.turni.controller.TreeTable">
 
-	<Page showHeader="false" showFooter="false" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack">
+	<Page showHeader="true" showFooter="false" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="Monitoraggio Turni">
 		<subHeader>
 			<Toolbar>
-				<Button type="Back" press="onNavBack"></Button>
+				<!-- <Button type="Back" press="onNavBack"></Button> -->
 				<ToolbarSpacer />
 				<Title text="Seleziona Unità Organizzativa:"></Title>
 				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">

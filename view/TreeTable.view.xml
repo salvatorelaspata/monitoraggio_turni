@@ -105,7 +105,7 @@
 										<core:CustomData key="remember" value="true" />
 									</customData>
 								</Button>
-								<Button type="Default" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://account" visible="{= ${type} === 'R'}" press="handleSelectDialogPress"></Button>
+								<Button type="Default" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://account" visible="false" press="handleSelectDialogPress"></Button>
 								<Button type="Reject" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://delete" visible="{= ${type} === 'R'}"></Button>
 							</FlexBox>
 						</tree:template>

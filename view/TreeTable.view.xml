@@ -9,25 +9,31 @@
 				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">
 					<core:Item text="" key=""></core:Item>
 					<core:Item text="Banca D'Italia" key="BKI"></core:Item>
+					<core:Item text="Dipartimenti" key="dipartimenti"></core:Item>
+					<core:Item text="Servizi" key="servizi"></core:Item>
+					<core:Item text="Filiari" key="filiari"></core:Item>
+					<core:Item text="Altra Tipologia" key="altro"></core:Item>
 				</Select>
 				<ToolbarSpacer />
 				<Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button>
 				<ToolbarSpacer />
+				<Button icon="sap-icon://bell" />
 			</Toolbar>
 		</subHeader>
 		<content>
 			<smartTable:SmartTable visible="{=${dataSource>/UO} === 'BKI'}" tableType="TreeTable" initialise="onSmartTableInit" editable="false" useVariantManagement="true" useTablePersonalisation="true">
 
-				<Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
+				<!-- <Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
 					<ToolbarSpacer />
-					<Button type="Emphasized" text="Gestione Raggruppamenti" press="onRaggruppamentoDialog" />
-					<Button type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
-					<!-- visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}"  -->
+					<Button visible="false" type="Emphasized" text="Gestione Raggruppamenti" press="onRaggruppamentoDialog" />
+					<Button visible="false" type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
+					visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}" 
 				</Toolbar>
-				<tree:TreeTable class="sapUiSmallMarginTop" rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="13" visibleRowCountMode="Interactive">
+				-->
+				<tree:TreeTable rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="13" visibleRowCountMode="Interactive">
 
 					<tree:Column grouped="false" autoResizable="true" width="400px">
-						<Label text="Macrostruttura Organizzativa" />
+						<Text text="Macrostruttura Organizzativa" />
 						<tree:template>
 							<Text text="{name}" wrapping="true" maxLines="3" tooltip="{name}" width="100%">
 								<customData>
@@ -38,66 +44,87 @@
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true" resizable="false" width="55px">
-						<Label text="Type" />
+						<Text text="Type" />
+
 						<tree:template>
 							<core:Icon class="icon-type" src="{=${type} !== 'P' ? 'sap-icon://company-view' : 'sap-icon://customer'}" color="{=${type} !== 'P' &amp;&amp; ${type} !== 'R' ? '#E69A17' : '#031E48'}"></core:Icon>
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true">
-						<Label text="Sigla" />
+						<Text text="Sigla" />
 						<tree:template>
 							<Text text="{sigla}" wrapping="false"></Text>
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true">
-						<Label text="ID" />
+						<Text text="ID" />
 						<tree:template>
 							<Text text="{ID}" wrapping="false"></Text>
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true">
+						<!-- <Label text="Data Inizio gestione PT" /> -->
+						<Text text="Data Inizio gestione PT" wrapping="true" maxLines="2" />
+						<tree:template>
+							<Text text="{dataInizioPT}" wrapping="false"></Text>
+						</tree:template>
+					</tree:Column>
+
+					<tree:Column grouped="false" autoResizable="true">
+						<Text text="Data Fine gestione PT" wrapping="true" maxLines="2" />
+						<tree:template>
+							<Text text="{dataFinePT}" wrapping="false"></Text>
+						</tree:template>
+					</tree:Column>
+
+					<!-- <tree:Column grouped="false" autoResizable="true">
 						<Label text="Responsabile" />
 						<tree:template>
 							<Input value="{responsabile}" name="editable" enabled="{Edit}" />
 						</tree:template>
-					</tree:Column>
+					</tree:Column> -->
 
 					<tree:Column grouped="false" autoResizable="true">
-						<Label text="Inizio Validità" />
+						<Text text="Inizio Validità" />
 						<tree:template>
-							<DatePicker value="{inizioValidita}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+							<!-- <DatePicker value="{inizioValidita}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" /> -->
+							<Text text="{inizioValidita}" />
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true">
-						<Label text="Fine Validità" />
+						<Text text="Fine Validità" />
 						<tree:template>
-							<DatePicker value="{fineValidita}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+							<!-- <DatePicker value="{fineValidita}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" /> -->
+							<Text text="{fineValidita}" />
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true">
-						<Label text="Attrubito Da" />
+						<Text text="Attrubito Da" />
 						<tree:template>
-							<DatePicker value="{attribuitoDa}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+							<!-- <DatePicker value="{attribuitoDa}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" /> -->
+							<Text text="{attribuitoDa}" />
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true">
-						<Label text="Attrubito A" />
+						<Text text="Attrubito A" />
 						<tree:template>
-							<DatePicker value="{attribuitoA}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" />
+							<!-- <DatePicker value="{attribuitoA}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}" name="editable" /> -->
+							<Text text="{attribuitoA}" />
 						</tree:template>
 					</tree:Column>
 
 					<tree:Column grouped="false" autoResizable="true" width="200px">
-						<Label text="Azioni" />
+						<Text text="Azioni" />
 						<tree:template>
 							<FlexBox alignItems="Center" justifyContent="Start" alignContent="Center">
-								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" visible="{= ${type} === 'R'}" press="onEditableTreeTable"></Button>
+								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" visible="{= ${type} === 'R'}" press="onEditableRaggruppamento"></Button> <!-- press="onEditableTreeTable" -->
+
 								<Button type="Transparent" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://share" tooltip="Sposta" visible="false"></Button>
 								<Button type="Accept" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://add" visible="{= ${name} === 'Divisione 1' || ${name} === 'Divisione 2' || ${name} === 'Reparto' || ${name} === 'Reparto 2' || ${name} === 'Ufficio' || ${name} === 'Ufficio 2' || ${name} === 'Settori' || ${name} === 'Settori 2'}" tooltip="{= ${type} === 'R' ? 'Assegna Persone' : 'Crea Raggruppamento'}" press="onDialogAddRaggruppamenti">
 									<customData>
@@ -105,6 +132,8 @@
 										<core:CustomData key="remember" value="true" />
 									</customData>
 								</Button>
+								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" visible="{= ${name} === 'Divisione 1' || ${name} === 'Divisione 2'}" press="onSelectDatePT" icon="sap-icon://appointment"></Button> <!--  icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" -->
+
 								<Button type="Default" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://account" visible="false" press="handleSelectDialogPress"></Button>
 								<Button type="Reject" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://delete" visible="{= ${type} === 'R'}"></Button>
 							</FlexBox>

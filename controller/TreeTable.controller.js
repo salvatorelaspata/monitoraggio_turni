@@ -68,6 +68,10 @@ sap.ui.define(
                debugger;
                oEvn.getSource().getParent().getParent().close();
             },
+            onSelectedDatePT: function (oEvn) {
+               debugger;
+               oEvn.getSource().getParent().getParent().close();
+            },
             onEditableTreeTable: function (oEvn) {
                debugger;
                var self = this;
@@ -80,26 +84,29 @@ sap.ui.define(
                var oModel = oEvn.getSource().getBindingContext().getModel();
                oModel.setProperty(sPath + '/Edit', !editable);
             },
+            onEditableRaggruppamento: function () {},
             onModifyRowFabbisogno: function (oEvn) {
                debugger;
-               /*  var self = this;
-      this.editableRowFabbisogno = !this.editableRowFabbisogno;
-      var cells = oEvn.getSource().getParent().getCells();
-      cells.map(function (element, index) {
-         if (index !== 0 && index !== 6)
-            element.setEnabled(self.editableRowFabbisogno);
-      });
+               /*  
+               var self = this;
+               this.editableRowFabbisogno = !this.editableRowFabbisogno;
+               var cells = oEvn.getSource().getParent().getCells();
+               cells.map(function (element, index) {
+                  if (index !== 0 && index !== 6)
+                     element.setEnabled(self.editableRowFabbisogno);
+               });
 
-      var button = cells[6];
-      if (this.editableRowFabbisogno) {
-         button.setIcon('sap-icon://save');
-         button.setTooltip('Salva');
-         button.setType('Accept');
-      } else {
-         button.setIcon('sap-icon://edit');
-         button.setTooltip('Modifica');
-         button.setType('Emphasized');
-      } */
+               var button = cells[6];
+               if (this.editableRowFabbisogno) {
+                  button.setIcon('sap-icon://save');
+                  button.setTooltip('Salva');
+                  button.setType('Accept');
+               } else {
+                  button.setIcon('sap-icon://edit');
+                  button.setTooltip('Modifica');
+                  button.setType('Emphasized');
+               } 
+               */
                //sostituire pulsante con salvataggio
                var objBinding = oEvn
                   .getSource()
@@ -144,6 +151,21 @@ sap.ui.define(
             onSelectDate: function () {
                this._DialogSelectionDate = sap.ui.xmlfragment(
                   'sap.ui.bki.monitoraggio.turni.view.DialogDate',
+                  this
+               );
+               this.getView().addDependent(this._DialogSelectionDate);
+
+               // toggle compact style
+               jQuery.sap.syncStyleClass(
+                  'sapUiSizeCompact',
+                  this.getView(),
+                  this._DialogSelectionDate
+               );
+               this._DialogSelectionDate.open();
+            },
+            onSelectDatePT: function () {
+               this._DialogSelectionDate = sap.ui.xmlfragment(
+                  'sap.ui.bki.monitoraggio.turni.view.DialogDatePT',
                   this
                );
                this.getView().addDependent(this._DialogSelectionDate);
@@ -326,6 +348,86 @@ sap.ui.define(
                   'sap.ui.bki.monitoraggio.turni.view.DialogAddRaggruppamento',
                   this
                );
+               var dataModel = this.getView().getModel('dataSource');
+               var dataSource = dataModel.getData();
+               dataSource.fabbisogni = [
+                  {
+                     Raggruppamento: 'Raggruppamento A',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Feriale', 'Festivo'],
+                     Orario: '9-13/14-18',
+                     Persone: '3',
+                     Edit: false,
+                  },
+                  /* {
+                     Raggruppamento: 'Raggruppamento B',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Feriale', 'Festivo'],
+                     Orario: '14-18',
+                     Persone: '2',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento C',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento D',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento E',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento F',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento G',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento H',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  }, */
+               ];
+
+               this.getView().getModel('dataSource').setData(dataSource);
+
+               this._oDialog.setModel(this.getView().getModel('dataSource'));
 
                jQuery.sap.syncStyleClass(
                   'sapUiSizeCompact',

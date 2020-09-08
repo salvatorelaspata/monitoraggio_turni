@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Dialog title="Seleziona Date" class="sapUiContentPadding" stretch="false">
+      <content>
+         <Label text="Data Inizio PT"></Label>
+         <DatePicker placeholder="Seleziona la data inizio" value="08-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+         <FlexBox></FlexBox>
+         <Label text="Data FIne PT"></Label>
+         <DatePicker placeholder="Seleziona la data inizio" value="31-12-2020" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+      </content>
+      <beginButton>
+         <Button text="Annulla" press="onCloseSelectedDate" />
+      </beginButton>
+      <endButton>
+         <Button text="Salva" press="onSelectedDatePT" type="Accept" />
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

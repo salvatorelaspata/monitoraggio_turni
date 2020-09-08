@@ -1,7 +1,7 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
    <Dialog title="Associazione Raggruppamento" class="sapUiContentPadding" stretch="false">
       <content>
-         <FlexBox direction="Column" justifyContent="End">
+         <FlexBox direction="Column" justifyContent="End" visible="false">
             <Label text="Selezione Raggruppamento esistente"></Label>
             <Select>
                <items>
@@ -23,8 +23,103 @@
          <DatePicker placeholder="Seleziona la data inizio" value="" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
          <Label text="Dipende da UO"></Label>
          <Input value="UO 00000" enabled="false" />
-         <Label text="Attribuito DA - A"></Label>
-         <DateRangeSelection value="01-09-2020/01-11-2020" valueFormat="dd-MM-yyyy"></DateRangeSelection>
+         <!-- <Label text="Attribuito DA - A"></Label>
+         <DateRangeSelection value="01-09-2020/01-11-2020" valueFormat="dd-MM-yyyy"></DateRangeSelection> -->
+         <l:VerticalLayout width="100%" class="sapUiTinyMarginBottom">
+            <fb:FilterBar visible="false" reset="onReset" search="onSearch" showRestoreOnFB="true" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
+               <fb:filterItems>
+                  <fb:FilterItem name="A" label="Raggruppamento">
+                     <fb:control>
+                        <Select>
+                           <items>
+                              <core:Item text="" key=""></core:Item>
+                              <core:Item text="Raggruppamento 1" key="R1"></core:Item>
+                              <core:Item text="Raggruppamento 2" key="R2"></core:Item>
+                              <core:Item text="Raggruppamento 3" key="R3"></core:Item>
+                           </items>
+                        </Select>
+                     </fb:control>
+                  </fb:FilterItem>
+
+                  <fb:FilterItem name="B" label="Data Inizio Validità" labelTooltip="Data Inizio Validità">
+                     <fb:control>
+                        <DatePicker></DatePicker>
+                     </fb:control>
+                  </fb:FilterItem>
+                  <fb:FilterItem name="C" label="Data Fine Validità" labelTooltip="Data Fine Validità">
+                     <fb:control>
+                        <DatePicker></DatePicker>
+                     </fb:control>
+                  </fb:FilterItem>
+                  <fb:FilterItem name="D" label="Orario di Lavoro" labelTooltip="Orario di Lavoro">
+                     <fb:control>
+                        <MultiComboBox enabled="false">
+                           <items>
+                              <core:Item text="Festivi" key="Festivi"></core:Item>
+                              <core:Item text="Feriali" key="Feriali"></core:Item>
+                              <core:Item text="Sabati" key="Sabati"></core:Item>
+                              <core:Item text="Domeniche" key="Domeniche"></core:Item>
+                           </items>
+                        </MultiComboBox>
+                     </fb:control>
+                  </fb:FilterItem>
+
+                  <fb:FilterItem name="D" label="Orario di Lavoro" labelTooltip="Orario di Lavoro">
+                     <fb:control>
+                        <Input type="Number" />
+                     </fb:control>
+                  </fb:FilterItem>
+               </fb:filterItems>
+
+            </fb:FilterBar>
+            <Table inset="false" items="{/fabbisogni}">
+               <headerToolbar>
+                  <Toolbar>
+                     <Title text="Fabbisogni" level="H2" visible="false" />
+                     <ToolbarSpacer />
+                     <Button type="Accept" text="Gestione orari e fabbisogni" press="onAddFabbisogno" icon="sap-icon://add"></Button>
+                  </Toolbar>
+               </headerToolbar>
+               <columns>
+                  <!-- <Column width="12em">
+                     <Text text="Raggruppamento" />
+                  </Column> -->
+                  <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                     <Text text="Orario di Lavoro" />
+                  </Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true">
+                     <Text text="Data Inizio" />
+                  </Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                     <Text text="Data Fine" />
+                  </Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
+                     <Text text="N° Persone" />
+                  </Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right" width="140px">
+                     <Text text="Azioni" />
+                  </Column>
+               </columns>
+               <items>
+                  <ColumnListItem>
+                     <cells>
+                        <Input value="{Orario}" type="Text" enabled="{Edit}" />
+
+                        <!-- <Input value="{Raggruppamento}" /> -->
+                        <DatePicker value="{DataInizio}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}"></DatePicker>
+                        <DatePicker value="{DataFine}" valueFormat="dd-MM-yyyy" displayFormat="long" enabled="{Edit}"></DatePicker>
+
+                        <Input value="{Persone}" type="Number" enabled="{Edit}" />
+                        <FlexBox>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno" visible="{=!${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Reject" tooltip="Cancella" visible="{=!${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://save" type="Accept" tooltip="Salva" press="onSaveRowFabbisogno" visible="{=${New}}"></Button>
+                        </FlexBox>
+                     </cells>
+                  </ColumnListItem>
+               </items>
+            </Table>
+         </l:VerticalLayout>
       </content>
       <beginButton>
          <Button text="Annulla" press="onCloseSelectedDate" />

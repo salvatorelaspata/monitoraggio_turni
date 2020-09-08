@@ -360,7 +360,7 @@ sap.ui.define(
                      Persone: '3',
                      Edit: false,
                   },
-                  /* {
+                  {
                      Raggruppamento: 'Raggruppamento B',
                      DataInizio: '22-01-2020',
                      DataFine: '22-03-2020',
@@ -422,7 +422,7 @@ sap.ui.define(
                      Orario: '9-13',
                      Persone: '1',
                      Edit: false,
-                  }, */
+                  },
                ];
 
                this.getView().getModel('dataSource').setData(dataSource);

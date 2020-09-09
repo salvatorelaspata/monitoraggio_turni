@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
-   <Dialog title="Associazione Raggruppamento - {/editRaggruppamento/title}" class="sapUiContentPadding" stretch="false">
+   <Dialog title="{/editRaggruppamento/title}" class="sapUiContentPadding" stretch="false">
       <content>
          <FlexBox direction="Column" justifyContent="End" visible="false">
             <Label text="Selezione Raggruppamento esistente"></Label>

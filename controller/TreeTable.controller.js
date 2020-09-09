@@ -116,7 +116,7 @@ sap.ui.define(
 
                var dataModel = this.getView().getModel('dataSource');
                var dataSource = dataModel.getData();
-               objBinding.title = nome;
+               objBinding.title = 'Modifica Raggruppamento - ' + nome;
                dataSource.editRaggruppamento = objBinding;
                dataSource.fabbisogni = [
                   {
@@ -485,7 +485,9 @@ sap.ui.define(
                   .getBindingContext()
                   .getObject();
 
-               dataSource.editRaggruppamento = { title: objBinding.name };
+               dataSource.editRaggruppamento = {
+                  title: 'Associazione Raggruppamento - ' + objBinding.name,
+               };
                dataSource.fabbisogni = [
                   {
                      Raggruppamento: 'Raggruppamento A',

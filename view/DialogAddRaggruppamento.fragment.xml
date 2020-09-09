@@ -14,13 +14,13 @@
 
          </FlexBox>
          <Label text="Descrizione"></Label>
-         <Input />
+         <Input value="{/editRaggruppamento/name}" />
          <Label text="Descrizione Estesa"></Label>
-         <Input />
+         <Input value="{/editRaggruppamento/description}" />
          <Label text="Data Inizio Validità"></Label>
-         <DatePicker placeholder="Seleziona la data inizio" value="01-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+         <DatePicker placeholder="Seleziona la data inizio" value="{/editRaggruppamento/inizioValidita}" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
          <Label text="Data Fine Validità"></Label>
-         <DatePicker placeholder="Seleziona la data inizio" value="" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
+         <DatePicker placeholder="Seleziona la data inizio" value="{/editRaggruppamento/fineValidita}" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
          <Label text="Dipende da UO"></Label>
          <Input value="UO 00000" enabled="false" />
          <!-- <Label text="Attribuito DA - A"></Label>

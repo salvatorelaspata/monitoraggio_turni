@@ -84,7 +84,110 @@ sap.ui.define(
                var oModel = oEvn.getSource().getBindingContext().getModel();
                oModel.setProperty(sPath + '/Edit', !editable);
             },
-            onEditableRaggruppamento: function () {},
+            onEditableRaggruppamento: function (oEvent) {
+               debugger;
+               var oView = this.getView();
+               this._oDialog = sap.ui.xmlfragment(
+                  'sap.ui.bki.monitoraggio.turni.view.DialogAddRaggruppamento',
+                  this
+               );
+
+               var objBinding = oEvent
+                  .getSource()
+                  .getParent()
+                  .getParent()
+                  .getBindingContext()
+                  .getObject();
+
+               var dataModel = this.getView().getModel('dataSource');
+               var dataSource = dataModel.getData();
+               dataSource.editRaggruppamento = objBinding;
+               dataSource.fabbisogni = [
+                  {
+                     Raggruppamento: 'Raggruppamento A',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Feriale', 'Festivo'],
+                     Orario: '9-13/14-18',
+                     Persone: '3',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento B',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Feriale', 'Festivo'],
+                     Orario: '14-18',
+                     Persone: '2',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento C',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento D',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento E',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento F',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento G',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+                  {
+                     Raggruppamento: 'Raggruppamento H',
+                     DataInizio: '22-01-2020',
+                     DataFine: '22-03-2020',
+                     Tipologia: ['Sabati', 'Domeniche'],
+                     Orario: '9-13',
+                     Persone: '1',
+                     Edit: false,
+                  },
+               ];
+
+               this.getView().getModel('dataSource').setData(dataSource);
+
+               this._oDialog.setModel(this.getView().getModel('dataSource'));
+
+               jQuery.sap.syncStyleClass(
+                  'sapUiSizeCompact',
+                  this.getView(),
+                  this._oDialog
+               );
+               this._oDialog.open();
+            },
             onModifyRowFabbisogno: function (oEvn) {
                debugger;
                /*  

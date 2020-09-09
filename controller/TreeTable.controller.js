@@ -99,9 +99,24 @@ sap.ui.define(
                   .getBindingContext()
                   .getObject();
 
+               var sPath = oEvent
+                  .getSource()
+                  .getParent()
+                  .getParent()
+                  .getBindingContext().sPath;
+               var parent = sPath.slice(0, sPath.length - 2);
+
+               var oModel = oEvent
+                  .getSource()
+                  .getParent()
+                  .getParent()
+                  .getBindingContext()
+                  .getModel();
+               var nome = oModel.getProperty(parent + '/name');
+
                var dataModel = this.getView().getModel('dataSource');
                var dataSource = dataModel.getData();
-               objBinding.title = objBinding.name;
+               objBinding.title = nome;
                dataSource.editRaggruppamento = objBinding;
                dataSource.fabbisogni = [
                   {

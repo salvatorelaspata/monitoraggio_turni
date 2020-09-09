@@ -116,7 +116,7 @@
 
                         <Input value="{Persone}" type="Number" enabled="{Edit}" />
                         <FlexBox>
-                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno" visible="{= !${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="{= ${Edit} ? 'sap-icon://undo' : 'sap-icon://edit'}" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno" visible="{= !${New}}"></Button>
                            <Button class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Reject" tooltip="Cancella" visible="{= !${New}}"></Button>
                            <Button class="sapUiTinyMarginEnd" icon="sap-icon://save" type="Accept" tooltip="Salva" press="onSaveRowFabbisogno" visible="{= ${New}}"></Button>
                         </FlexBox>

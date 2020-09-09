@@ -12,9 +12,14 @@
                         <Select>
                            <items>
                               <core:Item text="" key=""></core:Item>
-                              <core:Item text="Raggruppamento 1" key="R1"></core:Item>
-                              <core:Item text="Raggruppamento 2" key="R2"></core:Item>
-                              <core:Item text="Raggruppamento 3" key="R3"></core:Item>
+                              <core:Item text="Raggruppamento A" key="R1"></core:Item>
+                              <core:Item text="Raggruppamento B" key="R2"></core:Item>
+                              <core:Item text="Raggruppamento C" key="R3"></core:Item>
+                              <core:Item text="Raggruppamento D" key="R4"></core:Item>
+                              <core:Item text="Raggruppamento E" key="R5"></core:Item>
+                              <core:Item text="Raggruppamento F" key="R6"></core:Item>
+                              <core:Item text="Raggruppamento G" key="R7"></core:Item>
+                              <core:Item text="Raggruppamento H" key="R8"></core:Item>
                            </items>
                         </Select>
                      </fb:control>

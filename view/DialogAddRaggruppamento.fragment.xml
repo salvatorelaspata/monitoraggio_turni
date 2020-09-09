@@ -6,9 +6,14 @@
             <Select>
                <items>
                   <core:Item text="" key=""></core:Item>
-                  <core:Item text="Raggruppamento 1" key="R1"></core:Item>
-                  <core:Item text="Raggruppamento 2" key="R2"></core:Item>
-                  <core:Item text="Raggruppamento 3" key="R3"></core:Item>
+                  <core:Item text="Raggruppamento A" key="R1"></core:Item>
+                  <core:Item text="Raggruppamento B" key="R2"></core:Item>
+                  <core:Item text="Raggruppamento C" key="R3"></core:Item>
+                  <core:Item text="Raggruppamento D" key="R4"></core:Item>
+                  <core:Item text="Raggruppamento E" key="R5"></core:Item>
+                  <core:Item text="Raggruppamento F" key="R6"></core:Item>
+                  <core:Item text="Raggruppamento G" key="R7"></core:Item>
+                  <core:Item text="Raggruppamento H" key="R8"></core:Item>
                </items>
             </Select>
 
@@ -26,45 +31,45 @@
          <!-- <Label text="Attribuito DA - A"></Label>
          <DateRangeSelection value="01-09-2020/01-11-2020" valueFormat="dd-MM-yyyy"></DateRangeSelection> -->
          <l:VerticalLayout width="100%" class="sapUiTinyMarginBottom">
-            <fb:FilterBar visible="true" reset="onReset" search="onSearch" showRestoreOnFB="true" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
+            <fb:FilterBar visible="true" showRestoreOnFB="false" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
                <fb:filterItems>
                   <fb:FilterItem name="A" label="Raggruppamento">
                      <fb:control>
                         <Select>
                            <items>
                               <core:Item text="" key=""></core:Item>
-                              <core:Item text="Raggruppamento 1" key="R1"></core:Item>
-                              <core:Item text="Raggruppamento 2" key="R2"></core:Item>
-                              <core:Item text="Raggruppamento 3" key="R3"></core:Item>
+                              <core:Item text="Raggruppamento A" key="R1"></core:Item>
+                              <core:Item text="Raggruppamento B" key="R2"></core:Item>
+                              <core:Item text="Raggruppamento C" key="R3"></core:Item>
+                              <core:Item text="Raggruppamento D" key="R4"></core:Item>
+                              <core:Item text="Raggruppamento E" key="R5"></core:Item>
+                              <core:Item text="Raggruppamento F" key="R6"></core:Item>
+                              <core:Item text="Raggruppamento G" key="R7"></core:Item>
+                              <core:Item text="Raggruppamento H" key="R8"></core:Item>
                            </items>
                         </Select>
                      </fb:control>
                   </fb:FilterItem>
 
-                  <fb:FilterItem name="B" label="Data Inizio Validità" labelTooltip="Data Inizio Validità">
+                  <fb:FilterItem name="B" label="Orario di Lavoro" labelTooltip="Orario di Lavoro">
                      <fb:control>
-                        <DatePicker></DatePicker>
-                     </fb:control>
-                  </fb:FilterItem>
-                  <fb:FilterItem name="C" label="Data Fine Validità" labelTooltip="Data Fine Validità">
-                     <fb:control>
-                        <DatePicker></DatePicker>
-                     </fb:control>
-                  </fb:FilterItem>
-                  <fb:FilterItem name="D" label="Orario di Lavoro" labelTooltip="Orario di Lavoro">
-                     <fb:control>
-                        <MultiComboBox enabled="false">
-                           <items>
-                              <core:Item text="Festivi" key="Festivi"></core:Item>
-                              <core:Item text="Feriali" key="Feriali"></core:Item>
-                              <core:Item text="Sabati" key="Sabati"></core:Item>
-                              <core:Item text="Domeniche" key="Domeniche"></core:Item>
-                           </items>
-                        </MultiComboBox>
+                        <Input type="Text" showValueHelp="true" />
                      </fb:control>
                   </fb:FilterItem>
 
-                  <fb:FilterItem name="D" label="Orario di Lavoro" labelTooltip="Orario di Lavoro">
+                  <fb:FilterItem name="C" label="Data Inizio Validità" labelTooltip="Data Inizio Validità">
+                     <fb:control>
+                        <DatePicker></DatePicker>
+                     </fb:control>
+                  </fb:FilterItem>
+
+                  <fb:FilterItem name="D" label="Data Fine Validità" labelTooltip="Data Fine Validità">
+                     <fb:control>
+                        <DatePicker></DatePicker>
+                     </fb:control>
+                  </fb:FilterItem>
+
+                  <fb:FilterItem name="E" label="N° Persone" labelTooltip="N° Persone">
                      <fb:control>
                         <Input type="Number" />
                      </fb:control>
@@ -111,9 +116,9 @@
 
                         <Input value="{Persone}" type="Number" enabled="{Edit}" />
                         <FlexBox>
-                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno" visible="{=!${New}}"></Button>
-                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Reject" tooltip="Cancella" visible="{=!${New}}"></Button>
-                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://save" type="Accept" tooltip="Salva" press="onSaveRowFabbisogno" visible="{=${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://edit" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno" visible="{= !${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Reject" tooltip="Cancella" visible="{= !${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://save" type="Accept" tooltip="Salva" press="onSaveRowFabbisogno" visible="{= ${New}}"></Button>
                         </FlexBox>
                      </cells>
                   </ColumnListItem>

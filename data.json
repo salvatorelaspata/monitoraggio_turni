@@ -97,7 +97,7 @@
                   "testoCollegamento": "",
                   "informazioneStruttura": "",
                   "level": 5,
-                  "type": "O",
+                  "type": "D",
                   "Edit": false,
                   "0": {
                      "name": "Raggruppamento A",
@@ -265,7 +265,7 @@
                   "testoCollegamento": "",
                   "informazioneStruttura": "",
                   "level": 5,
-                  "type": "O",
+                  "type": "D",
                   "Edit": false,
                   "0": {
                      "name": "Raggruppamento E",

@@ -9,10 +9,18 @@
 				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">
 					<core:Item text="" key=""></core:Item>
 					<core:Item text="Banca D'Italia" key="BKI"></core:Item>
-					<core:Item text="Dipartimenti" key="dipartimenti"></core:Item>
-					<core:Item text="Servizi" key="servizi"></core:Item>
-					<core:Item text="Filiari" key="filiari"></core:Item>
-					<core:Item text="Altra Tipologia" key="altro"></core:Item>
+					<core:Item text="	Dipart. Mercati e Sistemi di Pagamento" key="Dipart. Mercati e Sistemi di Pagamento"></core:Item>
+					<core:Item text="		Serv. Supervis. Mercati e Sist. Pagamen." key="Serv. Supervis. Mercati e Sist. Pagamen."></core:Item>
+					<core:Item text="			Div. Strumenti e Servizi di Pagamento" key="Div. Strumenti e Servizi di Pagamento"></core:Item>
+					<core:Item text="			Div. Sistemi di Pagamento e Infrastrutt." key="Div. Sistemi di Pagamento e Infrastrutt."></core:Item>
+					<core:Item text="			Div. Mercati Monetari e Finanziari" key="Div. Mercati Monetari e Finanziari"></core:Item>
+					<core:Item text="			Div. Post Trading" key="Div. Post Trading"></core:Item>
+					<core:Item text="		Servizio Operazioni sui Mercati" key="Servizio Operazioni sui Mercati"></core:Item>
+					<core:Item text="			Div. Operaz. di Pol.Mon. e in Cambi" key="Div. Operaz. di Pol.Mon. e in Cambi"></core:Item>
+					<core:Item text="			Div. Analisi e Gest. Rischi Liquidità" key="Div. Analisi e Gest. Rischi Liquidità"></core:Item>
+					<core:Item text="			Divisione Debito Pubblico" key="Divisione Debito Pubblico"></core:Item>
+					<core:Item text="			Divisione Gestione delle Garanzie" key="Divisione Gestione delle Garanzie"></core:Item>
+					<core:Item text="			Divisione Operazioni di Investimento" key="Divisione Operazioni di Investimento"></core:Item>
 				</Select>
 				<ToolbarSpacer />
 				<Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button>
@@ -21,7 +29,7 @@
 			</Toolbar>
 		</subHeader>
 		<content>
-			<smartTable:SmartTable visible="{=${dataSource>/UO} === 'BKI'}" tableType="TreeTable" initialise="onSmartTableInit" editable="false" useVariantManagement="true" useTablePersonalisation="true">
+			<smartTable:SmartTable visible="{=!!${dataSource>/UO}}" tableType="TreeTable" initialise="onSmartTableInit" editable="false" useVariantManagement="true" useTablePersonalisation="true">
 
 				<!-- <Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
 					<ToolbarSpacer />
@@ -126,13 +134,13 @@
 								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" visible="{= ${type} === 'R'}" press="onEditableRaggruppamento"></Button> <!-- press="onEditableTreeTable" -->
 
 								<Button type="Transparent" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://share" tooltip="Sposta" visible="false"></Button>
-								<Button type="Accept" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://add" visible="{= ${name} === 'Divisione 1' || ${name} === 'Divisione 2' || ${name} === 'Reparto' || ${name} === 'Reparto 2' || ${name} === 'Ufficio' || ${name} === 'Ufficio 2' || ${name} === 'Settori' || ${name} === 'Settori 2'}" tooltip="{= ${type} === 'R' ? 'Assegna Persone' : 'Crea Raggruppamento'}" press="onDialogAddRaggruppamenti">
+								<Button type="Accept" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://add" visible="{= ${type} === 'D' || ${name} === 'Reparto' || ${name} === 'Reparto 2' || ${name} === 'Ufficio' || ${name} === 'Ufficio 2' || ${name} === 'Settori' || ${name} === 'Settori 2'}" tooltip="{= ${type} === 'R' ? 'Assegna Persone' : 'Crea Raggruppamento'}" press="onDialogAddRaggruppamenti">
 									<customData>
 										<core:CustomData key="multi" value="true" />
 										<core:CustomData key="remember" value="true" />
 									</customData>
 								</Button>
-								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" visible="{= ${name} === 'Divisione 1' || ${name} === 'Divisione 2'}" press="onSelectDatePT" icon="sap-icon://appointment"></Button> <!--  icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" -->
+								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" visible="{= ${type} === 'D'}" press="onSelectDatePT" icon="sap-icon://appointment"></Button> <!--  icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" -->
 
 								<Button type="Default" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://account" visible="false" press="handleSelectDialogPress"></Button>
 								<Button type="Reject" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://delete" visible="{= ${type} === 'R'}"></Button>

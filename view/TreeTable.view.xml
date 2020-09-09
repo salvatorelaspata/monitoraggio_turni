@@ -9,18 +9,11 @@
 				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">
 					<core:Item text="" key=""></core:Item>
 					<core:Item text="Banca D'Italia" key="BKI"></core:Item>
-					<core:Item text="	Dipart. Mercati e Sistemi di Pagamento" key="Dipart. Mercati e Sistemi di Pagamento"></core:Item>
-					<core:Item text="		Serv. Supervis. Mercati e Sist. Pagamen." key="Serv. Supervis. Mercati e Sist. Pagamen."></core:Item>
-					<core:Item text="			Div. Strumenti e Servizi di Pagamento" key="Div. Strumenti e Servizi di Pagamento"></core:Item>
-					<core:Item text="			Div. Sistemi di Pagamento e Infrastrutt." key="Div. Sistemi di Pagamento e Infrastrutt."></core:Item>
-					<core:Item text="			Div. Mercati Monetari e Finanziari" key="Div. Mercati Monetari e Finanziari"></core:Item>
-					<core:Item text="			Div. Post Trading" key="Div. Post Trading"></core:Item>
-					<core:Item text="		Servizio Operazioni sui Mercati" key="Servizio Operazioni sui Mercati"></core:Item>
-					<core:Item text="			Div. Operaz. di Pol.Mon. e in Cambi" key="Div. Operaz. di Pol.Mon. e in Cambi"></core:Item>
-					<core:Item text="			Div. Analisi e Gest. Rischi Liquidità" key="Div. Analisi e Gest. Rischi Liquidità"></core:Item>
-					<core:Item text="			Divisione Debito Pubblico" key="Divisione Debito Pubblico"></core:Item>
-					<core:Item text="			Divisione Gestione delle Garanzie" key="Divisione Gestione delle Garanzie"></core:Item>
-					<core:Item text="			Divisione Operazioni di Investimento" key="Divisione Operazioni di Investimento"></core:Item>
+					<core:Item text="Dipart. Mercati e Sistemi di Pagamento" key="Dipartimento Mercati e Sistemi di Pagamento"></core:Item>
+					<core:Item text="Serv. Supervis. Mercati e Sist. Pagamen." key="Servizio Supervis. Mercati e Sist. Pagamen."></core:Item>
+					<core:Item text="Serv. Operazioni sui Mercati" key="Servizio Operazioni sui Mercati"></core:Item>
+					<core:Item text="SERVIZIO/FILIALE POZZO PER NON ALLOCATI" key="SERVIZIO/FILIALE POZZO PER NON ALLOCATI"></core:Item>
+					<core:Item text="SETTORE FILIALI DI BANCHE ESTERE" key="SETTORE FILIALI DI BANCHE ESTERE"></core:Item>
 				</Select>
 				<ToolbarSpacer />
 				<Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button>

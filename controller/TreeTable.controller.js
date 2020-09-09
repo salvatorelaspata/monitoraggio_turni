@@ -101,6 +101,7 @@ sap.ui.define(
 
                var dataModel = this.getView().getModel('dataSource');
                var dataSource = dataModel.getData();
+               objBinding.title = objBinding.name;
                dataSource.editRaggruppamento = objBinding;
                dataSource.fabbisogni = [
                   {
@@ -454,7 +455,7 @@ sap.ui.define(
                this._oDialogSelectUser.open();
             },
 
-            onDialogAddRaggruppamenti: function () {
+            onDialogAddRaggruppamenti: function (oEvent) {
                var oView = this.getView();
                this._oDialog = sap.ui.xmlfragment(
                   'sap.ui.bki.monitoraggio.turni.view.DialogAddRaggruppamento',
@@ -462,6 +463,14 @@ sap.ui.define(
                );
                var dataModel = this.getView().getModel('dataSource');
                var dataSource = dataModel.getData();
+               var objBinding = oEvent
+                  .getSource()
+                  .getParent()
+                  .getParent()
+                  .getBindingContext()
+                  .getObject();
+
+               dataSource.editRaggruppamento = { title: objBinding.name };
                dataSource.fabbisogni = [
                   {
                      Raggruppamento: 'Raggruppamento A',

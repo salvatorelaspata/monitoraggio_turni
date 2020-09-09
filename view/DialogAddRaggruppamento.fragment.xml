@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
-   <Dialog title="Associazione Raggruppamento" class="sapUiContentPadding" stretch="false">
+   <Dialog title="Associazione Raggruppamento - {/editRaggruppamento/title}" class="sapUiContentPadding" stretch="false">
       <content>
          <FlexBox direction="Column" justifyContent="End" visible="false">
             <Label text="Selezione Raggruppamento esistente"></Label>
@@ -26,8 +26,8 @@
          <DatePicker placeholder="Seleziona la data inizio" value="{/editRaggruppamento/inizioValidita}" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
          <Label text="Data Fine Validità"></Label>
          <DatePicker placeholder="Seleziona la data inizio" value="{/editRaggruppamento/fineValidita}" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
-         <Label text="Dipende da UO"></Label>
-         <Input value="UO 00000" enabled="false" />
+         <!-- <Label text="Dipende da UO"></Label>
+         <Input value="UO 00000" enabled="false" /> -->
          <!-- <Label text="Attribuito DA - A"></Label>
          <DateRangeSelection value="01-09-2020/01-11-2020" valueFormat="dd-MM-yyyy"></DateRangeSelection> -->
          <l:VerticalLayout width="100%" class="sapUiTinyMarginBottom">

@@ -26,7 +26,7 @@
          <!-- <Label text="Attribuito DA - A"></Label>
          <DateRangeSelection value="01-09-2020/01-11-2020" valueFormat="dd-MM-yyyy"></DateRangeSelection> -->
          <l:VerticalLayout width="100%" class="sapUiTinyMarginBottom">
-            <fb:FilterBar visible="false" reset="onReset" search="onSearch" showRestoreOnFB="true" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
+            <fb:FilterBar visible="true" reset="onReset" search="onSearch" showRestoreOnFB="true" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
                <fb:filterItems>
                   <fb:FilterItem name="A" label="Raggruppamento">
                      <fb:control>

@@ -116,7 +116,8 @@ sap.ui.define(
 
                var dataModel = this.getView().getModel('dataSource');
                var dataSource = dataModel.getData();
-               objBinding.title = 'Modifica Raggruppamento - ' + nome;
+               objBinding.title = 'Modifica Raggruppamento - ' + nome; //+ ' > ' + objBinding.name;,
+               objBinding.onModify = true;
                dataSource.editRaggruppamento = objBinding;
                dataSource.fabbisogni = [
                   {
@@ -274,7 +275,14 @@ sap.ui.define(
                oEvn.getSource().getParent().getParent().close();
             },
             onSaveRaggruppamento: function (oEvn) {
-               oEvn.getSource().getParent().getParent().close();
+               var dataModel = this.getView().getModel('dataSource');
+               var dataSource = dataModel.getData();
+               if (!dataSource.editRaggruppamento.onModify) {
+                  dataSource.editRaggruppamento.onModify = true;
+                  dataModel.updateBindings();
+               } else {
+                  oEvn.getSource().getParent().getParent().close();
+               }
             },
             onSelectDate: function () {
                this._DialogSelectionDate = sap.ui.xmlfragment(
@@ -487,6 +495,7 @@ sap.ui.define(
 
                dataSource.editRaggruppamento = {
                   title: 'Associazione Raggruppamento - ' + objBinding.name,
+                  onModify: false,
                };
                dataSource.fabbisogni = [
                   {

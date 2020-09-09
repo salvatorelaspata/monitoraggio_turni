@@ -29,3 +29,6 @@
    font-weight: bold;
    color: #031e48;
 }
+.border-box {
+   border: 1px solid lightgray;
+}

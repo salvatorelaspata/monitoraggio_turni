@@ -74,6 +74,12 @@
                         <Input type="Number" />
                      </fb:control>
                   </fb:FilterItem>
+
+                  <fb:FilterItem name="E" label="Includi UO Sottostanti" labelTooltip="Includi UO Sottostanti">
+                     <fb:control>
+                        <CheckBox selected="true"></CheckBox>
+                     </fb:control>
+                  </fb:FilterItem>
                </fb:filterItems>
 
             </fb:FilterBar>

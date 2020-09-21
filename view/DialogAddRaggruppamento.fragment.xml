@@ -109,7 +109,7 @@
                   <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Left">
                      <Text text="N° Persone" />
                   </Column>
-                  <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right" width="140px">
+                  <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right" width="60px">
                      <Text text="Azioni" />
                   </Column>
                </columns>

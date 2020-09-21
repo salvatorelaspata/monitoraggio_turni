@@ -127,10 +127,10 @@ sap.ui.define(
                   },
                   {
                      Raggruppamento: 'Raggruppamento A',
-                     DataInizio: '22-01-2020',
-                     DataFine: '22-03-2020',
+                     DataInizio: '23-03-2020',
+                     DataFine: '23-04-2020',
                      Tipologia: ['Feriale', 'Festivo'],
-                     Orario: '14-18',
+                     Orario: '9-13',
                      Persone: '2',
                      Edit: true,
                   },
@@ -338,8 +338,8 @@ sap.ui.define(
                /* var self = this;
       var objBinding = oEvn.getSource().getBindingContext().getObject(); */
             },
-            onAddRaggruppamento: function (oEvn) {},
-            onSubmitDialog: function (oEvent) {
+            /* onAddRaggruppamento: function (oEvn) {}, */
+            /* onSubmitDialog: function (oEvent) {
                this.oPersonalizationDialog = sap.ui.xmlfragment(
                   'sap.ui.bki.monitoraggio.turni.view.DialogFabbisogni',
                   this
@@ -436,7 +436,7 @@ sap.ui.define(
                   this.oPersonalizationDialog
                );
                this.oPersonalizationDialog.open();
-            },
+            }, */
             onRaggruppamentoDialog: function (oEvent) {
                this._DialogRaggruppamento = sap.ui.xmlfragment(
                   'sap.ui.bki.monitoraggio.turni.view.DialogRaggruppamenti',

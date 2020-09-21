@@ -1,6 +1,7 @@
 {
    "TileCollection": [
       {
+         "id": "1",
          "icon": "sap-icon://org-chart",
          "number": "",
          "numberUnit": "",
@@ -10,15 +11,17 @@
          "busy": false
       },
       {
+         "id": "2",
          "icon": "sap-icon://appointment-2",
          "number": "",
          "numberUnit": "",
          "title": "Pianificazione addetto ai turni",
          "info": "(AT)",
          "infoState": "None",
-         "busy": true
+         "busy": false
       },
       {
+         "id": "3",
          "icon": "sap-icon://check-availability",
          "number": "",
          "numberUnit": "",
@@ -28,6 +31,7 @@
          "busy": true
       },
       {
+         "id": "4",
          "icon": "sap-icon://chart-table-view",
          "number": "",
          "numberUnit": "",

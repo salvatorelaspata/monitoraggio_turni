@@ -1,7 +1,11 @@
-<mvc:View height="100%" controllerName="sap.ui.bki.monitoraggio.turni.controller.Tile" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<mvc:View xmlns:core="sap.ui.core" height="100%" controllerName="sap.ui.bki.monitoraggio.turni.controller.Tile" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
    <Page showHeader="false" showFooter="false" enableScrolling="false">
       <TileContainer id="container" tiles="{/TileCollection}">
-         <StandardTile icon="{icon}" type="{type}" number="{number}" numberUnit="{numberUnit}" title="{title}" info="{info}" infoState="{infoState}" press="onPressTile" busy="{busy}" busyIndicatorDelay="0" />
+         <StandardTile icon="{icon}" type="{type}" number="{number}" numberUnit="{numberUnit}" title="{title}" info="{info}" infoState="{infoState}" press="onPressTile" busy="{busy}" busyIndicatorDelay="0">
+            <customData>
+               <core:CustomData key="id" value="{id}"></core:CustomData>
+            </customData>
+         </StandardTile>
       </TileContainer>
       <footer>
          <Toolbar>

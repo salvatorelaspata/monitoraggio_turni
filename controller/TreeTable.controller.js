@@ -12,18 +12,18 @@ sap.ui.define(
                this.editableRowRaggruppamenti = false;
                this.editableTreeTable = false;
                /* 
-      jQuery.sap.require('sap.ui.core.util.MockServer');
-      var oModel = new sap.ui.model.odata.v2.ODataModel('tree', true);
-      this.oMockServer = new sap.ui.core.util.MockServer({
-         rootUri: 'tree/',
-      });
-      this.oMockServer.simulate(
-         './mockserver/metadata.xml',
-         './mockserver/'
-      );
-      this.oMockServer.start();
-      this.getView().setModel(oModel); 
-      */
+               jQuery.sap.require('sap.ui.core.util.MockServer');
+               var oModel = new sap.ui.model.odata.v2.ODataModel('tree', true);
+               this.oMockServer = new sap.ui.core.util.MockServer({
+                  rootUri: 'tree/',
+               });
+               this.oMockServer.simulate(
+                  './mockserver/metadata.xml',
+                  './mockserver/'
+               );
+               this.oMockServer.start();
+               this.getView().setModel(oModel); 
+               */
 
                //SOSTITUIRE CON ODATA
                var oTable = this.getView().byId('mytreeTable');
@@ -54,12 +54,8 @@ sap.ui.define(
                   ],
                });
                this.getView().setModel(dataSource, 'dataSource');
+               this.getView().byId('treeTableDate').setDateValue(new Date());
             },
-            /* 
-   onExit: function () {
-      this.oMockServer.stop();
-   }, 
-   */
             onCloseSelectedDate: function (oEvn) {
                debugger;
                oEvn.getSource().getParent().getParent().close();
@@ -127,7 +123,7 @@ sap.ui.define(
                      Tipologia: ['Feriale', 'Festivo'],
                      Orario: '9-13',
                      Persone: '3',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento A',
@@ -136,7 +132,7 @@ sap.ui.define(
                      Tipologia: ['Feriale', 'Festivo'],
                      Orario: '14-18',
                      Persone: '2',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento B',
@@ -145,7 +141,7 @@ sap.ui.define(
                      Tipologia: ['Feriale', 'Festivo'],
                      Orario: '14-18',
                      Persone: '2',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento C',
@@ -154,7 +150,7 @@ sap.ui.define(
                      Tipologia: ['Sabati', 'Domeniche'],
                      Orario: '9-13',
                      Persone: '1',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento D',
@@ -163,7 +159,7 @@ sap.ui.define(
                      Tipologia: ['Sabati', 'Domeniche'],
                      Orario: '9-13',
                      Persone: '1',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento E',
@@ -172,7 +168,7 @@ sap.ui.define(
                      Tipologia: ['Sabati', 'Domeniche'],
                      Orario: '9-13',
                      Persone: '1',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento F',
@@ -181,7 +177,7 @@ sap.ui.define(
                      Tipologia: ['Sabati', 'Domeniche'],
                      Orario: '9-13',
                      Persone: '1',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento G',
@@ -190,7 +186,7 @@ sap.ui.define(
                      Tipologia: ['Sabati', 'Domeniche'],
                      Orario: '9-13',
                      Persone: '1',
-                     Edit: false,
+                     Edit: true,
                   },
                   {
                      Raggruppamento: 'Raggruppamento H',
@@ -199,7 +195,7 @@ sap.ui.define(
                      Tipologia: ['Sabati', 'Domeniche'],
                      Orario: '9-13',
                      Persone: '1',
-                     Edit: false,
+                     Edit: true,
                   },
                ];
 
@@ -299,12 +295,22 @@ sap.ui.define(
                );
                this._DialogSelectionDate.open();
             },
-            onSelectDatePT: function () {
+            onSelectDatePT: function (oEvn) {
+               debugger;
                this._DialogSelectionDate = sap.ui.xmlfragment(
                   'sap.ui.bki.monitoraggio.turni.view.DialogDatePT',
                   this
                );
                this.getView().addDependent(this._DialogSelectionDate);
+
+               var objBinding = oEvn
+                  .getSource()
+                  .getBindingContext()
+                  .getObject();
+
+               var oModel = new sap.ui.model.json.JSONModel(objBinding);
+
+               this._DialogSelectionDate.setModel(oModel);
 
                // toggle compact style
                jQuery.sap.syncStyleClass(
@@ -497,7 +503,8 @@ sap.ui.define(
                   title: 'Associazione Raggruppamento - ' + objBinding.name,
                   onModify: false,
                };
-               dataSource.fabbisogni = [
+               dataSource.fabbisogni = [];
+               /* dataSource.fabbisogni = [
                   {
                      Raggruppamento: 'Raggruppamento A',
                      DataInizio: '22-01-2020',
@@ -579,7 +586,7 @@ sap.ui.define(
                      Persone: '1',
                      Edit: false,
                   },
-               ];
+               ]; */
 
                this.getView().getModel('dataSource').setData(dataSource);
 

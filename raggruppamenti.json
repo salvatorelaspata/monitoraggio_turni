@@ -1,0 +1,32 @@
+{
+   "Raggruppamenti": [
+      {
+         "key": "rA",
+         "text": "Raggruppamento A"
+      },
+      {
+         "key": "rB",
+         "text": "Raggruppamento B"
+      },
+      {
+         "key": "rC",
+         "text": "Raggruppamento C"
+      },
+      {
+         "key": "rD",
+         "text": "Raggruppamento D"
+      },
+      {
+         "key": "rE",
+         "text": "Raggruppamento E"
+      },
+      {
+         "key": "rF",
+         "text": "Raggruppamento F"
+      },
+      {
+         "key": "rG",
+         "text": "Raggruppamento G"
+      }
+   ]
+}

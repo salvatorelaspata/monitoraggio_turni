@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+   <Toolbar visible="true">
+      <ToolbarSpacer />
+      <Title text="{Persona}"></Title>
+      <ToolbarSpacer />
+   </Toolbar>
+   <TableSelectDialog items="{}" noDataText="Non ci sono raggruppamenti da visualizzare" title="Lista raggruppamenti" search="handleSearch" confirm="handleClose">
+      <columns>
+         <Column width="12em">
+            <header>
+               <Text text="Raggruppamento" />
+            </header>
+         </Column>
+         <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+            <header>
+               <Text text="Validità raggruppamento" />
+            </header>
+         </Column>
+         <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+            <header>
+               <Text text="UO Legato" />
+            </header>
+         </Column>
+      </columns>
+      <ColumnListItem>
+         <cells>
+            <ObjectIdentifier title="{Nome}" text="{Descrizione}" />
+            <DateRangeSelection></DateRangeSelection>
+            <Text text="{UO}"></Text>
+         </cells>
+      </ColumnListItem>
+   </TableSelectDialog>
+</core:FragmentDefinition>

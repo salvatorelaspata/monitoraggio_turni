@@ -1,0 +1,125 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT">
+   <Page showHeader="true" showFooter="false" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="Pianificazione addetto ai turni">
+      <subHeader>
+         <Toolbar visible="false">
+            <ToolbarSpacer />
+         </Toolbar>
+      </subHeader>
+      <content>
+         <l:Splitter height="100%" class="sapUiTinyMargin">
+            <VBox>
+
+               <layoutData>
+                  <l:SplitterLayoutData size="30%" resizable="false" />
+               </layoutData>
+               <Toolbar design="Info">
+                  <Title text="Persone" level="H2" class="titleAT" />
+               </Toolbar>
+               <Table id="personTable" mode="SingleSelectMaster" alternateRowColors="true" itemPress="onPressPersona" items="{/persone/Persone}">
+                  <headerToolbar>
+                     <Toolbar design="Transparent" width="100%">
+                        <HBox alignItems="Center" direction="Row">
+                           <Text text="Cerca:" width="60px" />
+                           <SearchField search="handleSearchPerson"></SearchField>
+                        </HBox>
+                     </Toolbar>
+                  </headerToolbar>
+                  <columns>
+                     <Column>
+                        <Text text="CID" />
+                     </Column>
+                     <Column>
+                        <Text text="Nome" />
+                     </Column>
+                     <Column>
+                        <Text text="Cognome" />
+                     </Column>
+                  </columns>
+                  <items>
+                     <ColumnListItem type="Active">
+                        <cells>
+                           <ObjectIdentifier title="{CID}" />
+                           <Text text="{Nome}"></Text>
+                           <Text text="{Cognome}"></Text>
+                        </cells>
+                     </ColumnListItem>
+                  </items>
+               </Table>
+
+            </VBox>
+            <VBox>
+               <layoutData>
+                  <l:SplitterLayoutData size="auto" />
+               </layoutData>
+               <Toolbar design="Info">
+                  <Title text="{=!${/RaggruppamentiPersona} ? 'Seleziona una persona per visualizzare i raggruppamenti associati' : 'Raggruppamenti' }" level="H2" class="titleAT" />
+               </Toolbar>
+               <Table id="raggruppamentoTable" mode="MultiSelect" items="{/RaggruppamentiPersona}" noDataText="Nessun raggruppamento assegnato alla persona {Persona}" width="100%" visible="{=!!${/RaggruppamentiPersona}}">
+                  <headerToolbar>
+                     <Toolbar design="Transparent" width="100%">
+                        <HBox alignItems="Center" direction="Row">
+                           <Text text="Cerca:" width="60px" />
+                           <SearchField search="handleSearchRagg"></SearchField>
+                        </HBox>
+                        <ToolbarSpacer />
+                        <Button type="Accept" icon="sap-icon://add" press="addRaggruppamento" />
+                     </Toolbar>
+                  </headerToolbar>
+                  <columns>
+                     <Column width="15rem">
+                        <header>
+                           <Text text="Raggruppamento" />
+                        </header>
+                     </Column>
+                     <Column width="10em">
+                        <header>
+                           <Text text="Descrizione" />
+                        </header>
+                     </Column>
+                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+                        <header>
+                           <Text text="Inizio Validità" />
+                        </header>
+                     </Column>
+                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+                        <header>
+                           <Text text="Fine Validità" />
+                        </header>
+                     </Column>
+                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <header>
+                           <Text text="UO Legato" />
+                        </header>
+                     </Column>
+                     <Column width="35px" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <header>
+                           <Text text="" />
+                        </header>
+                     </Column>
+                     <Column width="35px" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <header>
+                           <Text text="" />
+                        </header>
+                     </Column>
+                  </columns>
+                  <ColumnListItem vAlign="Middle">
+                     <cells>
+                        <Select items="{/raggruppamenti/Raggruppamenti}" selectedKey="{key}" enabled="{=!!${Edit}}" change="onChangeRagg">
+                           <items>
+                              <core:Item key="{key}" text="{text}"></core:Item>
+                           </items>
+                        </Select>
+                        <Text text="{Descrizione}" wrapping="true" maxLines="3" />
+                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}"></DatePicker>
+                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}"></DatePicker>
+                        <Text text="{UO}"></Text>
+                        <Button icon="sap-icon://delete" type="Reject" />
+                     </cells>
+                  </ColumnListItem>
+               </Table>
+            </VBox>
+
+         </l:Splitter>
+      </content>
+   </Page>
+</mvc:View>

@@ -18,21 +18,22 @@
             </Select>
 
          </FlexBox>
-         <Label text="Descrizione"></Label>
+         <Label text="Nome Raggruppamento (*)"></Label>
          <Input value="{/editRaggruppamento/name}" />
-         <Label text="Descrizione Estesa"></Label>
+         <Label text="Descrizione"></Label>
          <Input value="{/editRaggruppamento/description}" />
-         <Label text="Data Inizio Validità"></Label>
+         <Label text="Data Inizio Validità (*)"></Label>
          <DatePicker placeholder="Seleziona la data inizio" value="{/editRaggruppamento/inizioValidita}" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
-         <Label text="Data Fine Validità"></Label>
+         <Label text="Data Fine Validità (*)"></Label>
          <DatePicker placeholder="Seleziona la data inizio" value="{/editRaggruppamento/fineValidita}" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>
-
-         <l:VerticalLayout width="100%" class="sapUiMediumMarginTop border-box" visible="{/editRaggruppamento/onModify}">
+         <Text text="(*) campi obbligatori"></Text>
+         <l:VerticalLayout width="100%" class="sapUiMediumMarginTop border-box">
+            <!-- visible="{/editRaggruppamento/onModify}" -->
 
             <Toolbar design="Solid">
                <Title text='Gestione orari e Fabbisogni'></Title>
             </Toolbar>
-            <fb:FilterBar visible="true" showRestoreOnFB="false" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
+            <fb:FilterBar visible="false" showRestoreOnFB="false" showClearOnFB="true" showRestoreButton="false" showClearButton="false">
                <fb:filterItems>
                   <fb:FilterItem name="A" label="Raggruppamento">
                      <fb:control>
@@ -124,8 +125,8 @@
                         <Input value="{Persone}" type="Number" enabled="{Edit}" />
                         <FlexBox>
                            <Button class="sapUiTinyMarginEnd" icon="{= ${Edit} ? 'sap-icon://undo' : 'sap-icon://edit'}" type="Emphasized" tooltip="Modifica Riga" press="onModifyRowFabbisogno" visible="{= !${New}}"></Button>
-                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Reject" tooltip="Cancella" visible="{= !${New}}"></Button>
-                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://save" type="Accept" tooltip="Salva" press="onSaveRowFabbisogno" visible="{= ${New}}"></Button>
+                           <Button class="sapUiTinyMarginEnd" icon="sap-icon://delete" type="Reject" tooltip="Cancella"></Button> <!-- visible="{= !${New}}" -->
+                           <!-- <Button class="sapUiTinyMarginEnd" icon="sap-icon://save" type="Accept" tooltip="Salva" press="onSaveRowFabbisogno" visible="{= ${New}}"></Button> -->
                         </FlexBox>
                      </cells>
                   </ColumnListItem>

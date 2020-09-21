@@ -37,8 +37,20 @@ sap.ui.controller('sap.ui.bki.monitoraggio.turni.controller.Tile', {
 
    onPressTile: function (oEvn) {
       debugger;
+      var standardTile = oEvn.getSource();
+      var id = standardTile.getCustomData()[0].getValue();
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-      oRouter.navTo('treeTable');
+
+      switch (id) {
+         case '1':
+            oRouter.navTo('treeTable');
+            break;
+         case '2':
+            oRouter.navTo('pianificazioneAT');
+            break;
+         default:
+            break;
+      }
 
       //this.oRouter.navTo('TreeTable');
    },

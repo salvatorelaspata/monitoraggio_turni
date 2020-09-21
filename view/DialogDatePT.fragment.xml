@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-   <Dialog title="Seleziona Date" class="sapUiContentPadding" stretch="false">
+   <Dialog title="Seleziona Date PT - {/name}" class="sapUiContentPadding" stretch="false">
       <content>
          <Label text="Data Inizio PT"></Label>
          <DatePicker placeholder="Seleziona la data inizio" value="08-09-2020" valueFormat="dd-MM-yyyy" displayFormat="long"></DatePicker>

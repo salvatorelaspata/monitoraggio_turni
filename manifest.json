@@ -49,6 +49,11 @@
                "pattern": "treeTable",
                "name": "treeTable",
                "target": "treeTable"
+            },
+            {
+               "pattern": "pianificazioneAT",
+               "name": "pianificazioneAT",
+               "target": "pianificazioneAT"
             }
          ],
          "targets": {
@@ -58,6 +63,10 @@
             },
             "treeTable": {
                "viewName": "TreeTable",
+               "viewLevel": 1
+            },
+            "pianificazioneAT": {
+               "viewName": "PianificazioneAT",
                "viewLevel": 1
             }
          }

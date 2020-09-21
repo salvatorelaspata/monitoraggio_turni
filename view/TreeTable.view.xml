@@ -1,12 +1,11 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tree="sap.ui.table" controllerName="sap.ui.bki.monitoraggio.turni.controller.TreeTable">
-
 	<Page showHeader="true" showFooter="false" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="Monitoraggio Turni">
 		<subHeader>
 			<Toolbar>
 				<!-- <Button type="Back" press="onNavBack"></Button> -->
 				<ToolbarSpacer />
-				<Title text="Seleziona Unità Organizzativa:"></Title>
-				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO">
+				<Title text="Unità Organizzativa:"></Title>
+				<Select selectedKey="{dataSource>/UO}" change="onSelectedUO" width="400px">
 					<core:Item text="" key=""></core:Item>
 					<core:Item text="Banca D'Italia" key="BKI"></core:Item>
 					<core:Item text="Dipart. Mercati e Sistemi di Pagamento" key="Dipartimento Mercati e Sistemi di Pagamento"></core:Item>
@@ -16,23 +15,18 @@
 					<core:Item text="SETTORE FILIALI DI BANCHE ESTERE" key="SETTORE FILIALI DI BANCHE ESTERE"></core:Item>
 				</Select>
 				<ToolbarSpacer />
-				<Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button>
+				<!-- <Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button> -->
+				<Title text="Data di riferimento:"></Title>
+				<DatePicker id="treeTableDate" width="400px"></DatePicker>
 				<ToolbarSpacer />
-				<Button icon="sap-icon://bell" />
+				<Title text="Filtro PT:"></Title>
+				<CheckBox></CheckBox>
+				<ToolbarSpacer />
 			</Toolbar>
 		</subHeader>
 		<content>
 			<smartTable:SmartTable visible="{=!!${dataSource>/UO}}" tableType="TreeTable" initialise="onSmartTableInit" editable="false" useVariantManagement="true" useTablePersonalisation="true">
-
-				<!-- <Toolbar visible="{=${dataSource>/UO} === 'BKI'}">
-					<ToolbarSpacer />
-					<Button visible="false" type="Emphasized" text="Gestione Raggruppamenti" press="onRaggruppamentoDialog" />
-					<Button visible="false" type="Emphasized" text="Gestione Fabbisogni" press="onSubmitDialog" />
-					visible="{=!!${dataSource>/selected} &amp;&amp; ${dataSource>/selected/name} !== 'Raggruppamento'}" 
-				</Toolbar>
-				-->
 				<tree:TreeTable rowSelectionChange="onSelectedRow" id="mytreeTable" alternateRowColors="true" selectionMode="Single" showColumnVisibilityMenu="true" visibleRowCount="13" visibleRowCountMode="Interactive">
-
 					<tree:Column grouped="false" autoResizable="true" width="400px">
 						<Text text="Macrostruttura Organizzativa" />
 						<tree:template>
@@ -133,7 +127,7 @@
 										<core:CustomData key="remember" value="true" />
 									</customData>
 								</Button>
-								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" visible="{= ${type} === 'D'}" press="onSelectDatePT" icon="sap-icon://appointment"></Button> <!--  icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" -->
+								<Button type="Emphasized" class="icon-button sapUiTinyMarginEnd" visible="{= ${type} === 'D' || ${name} === 'Reparto' || ${name} === 'Reparto 2' || ${name} === 'Ufficio' || ${name} === 'Ufficio 2' || ${name} === 'Settori' || ${name} === 'Settori 2'}" press="onSelectDatePT" icon="sap-icon://appointment"></Button> <!-- visible="{= ${type} === 'D'}" icon="{= !${Edit} ? 'sap-icon://edit' : 'sap-icon://save'}" -->
 
 								<Button type="Default" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://account" visible="false" press="handleSelectDialogPress"></Button>
 								<Button type="Reject" class="icon-button sapUiTinyMarginEnd" icon="sap-icon://delete" visible="{= ${type} === 'R'}"></Button>

@@ -1,0 +1,78 @@
+{
+   "Persone": [
+      {
+         "CID": "001234",
+         "Nome": "Mario",
+         "Cognome": "Rossi",
+         "raggruppamenti": []
+      },
+      {
+         "CID": "001235",
+         "Nome": "Marco",
+         "Cognome": "Bruni",
+         "raggruppamenti": [
+            {
+               "Nome": "Raggruppamento A",
+               "key": "rA",
+               "Descrizione": "Descr. Raggruppamento A",
+               "ValidoDa": "01/01/2020",
+               "ValidoA": "31/08/2020",
+               "UO": "Divisione 1"
+            },
+            {
+               "Nome": "Raggruppamento B",
+               "key": "rB",
+               "Descrizione": "Descr. Raggruppamento B",
+               "ValidoDa": "01/03/2020",
+               "ValidoA": "31/04/2020",
+               "UO": "Divisione 1"
+            },
+            {
+               "Nome": "Raggruppamento C",
+               "key": "rC",
+               "Descrizione": "Descr. Raggruppamento C",
+               "ValidoDa": "01/07/2020",
+               "ValidoA": "31/08/2020",
+               "UO": "Divisione 1"
+            }
+         ]
+      },
+      {
+         "CID": "001236",
+         "Nome": "Luca",
+         "Cognome": "Bianchi",
+         "raggruppamenti": [
+            {
+               "Nome": "Raggruppamento D",
+               "key": "rD",
+               "Descrizione": "Descr. Raggruppamento D",
+               "ValidoDa": "01/01/2020",
+               "ValidoA": "31/12/2020",
+               "UO": "Settore 1"
+            },
+            {
+               "Nome": "Raggruppamento E",
+               "key": "rE",
+               "Descrizione": "Descr. Raggruppamento E",
+               "ValidoDa": "01/03/2020",
+               "ValidoA": "31/04/2020",
+               "UO": "Settore 1"
+            },
+            {
+               "Nome": "Raggruppamento F",
+               "key": "rF",
+               "Descrizione": "Descr. Raggruppamento F",
+               "ValidoDa": "01/03/2020",
+               "ValidoA": "31/12/2020",
+               "UO": "Settore 1"
+            }
+         ]
+      },
+      {
+         "CID": "001237",
+         "Nome": "Paolo",
+         "Cognome": "Rossini",
+         "raggruppamenti": []
+      }
+   ]
+}

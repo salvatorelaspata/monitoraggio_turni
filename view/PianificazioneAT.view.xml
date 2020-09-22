@@ -1,7 +1,14 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT">
-   <Page showHeader="true" showFooter="false" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="Pianificazione addetto ai turni">
+   <Page showHeader="true" showFooter="true" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="Pianificazione addetto ai turni">
       <subHeader>
-         <Toolbar visible="false">
+         <Toolbar>
+            <ToolbarSpacer />
+            <!-- <Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button> -->
+            <Title text="Data inizio:"></Title>
+            <DatePicker id="filterDataInizio" width="400px"></DatePicker>
+            <ToolbarSpacer />
+            <Title text="Data Fine:"></Title>
+            <DatePicker id="filterDataFine" width="400px"></DatePicker>
             <ToolbarSpacer />
          </Toolbar>
       </subHeader>
@@ -18,10 +25,9 @@
                <Table id="personTable" mode="SingleSelectMaster" alternateRowColors="true" itemPress="onPressPersona" items="{/persone/Persone}">
                   <headerToolbar>
                      <Toolbar design="Transparent" width="100%">
-                        <HBox alignItems="Center" direction="Row">
-                           <Text text="Cerca:" width="60px" />
-                           <SearchField search="handleSearchPerson"></SearchField>
-                        </HBox>
+                        <ToolbarSpacer />
+                        <Text text="Cerca:" width="60px" />
+                        <SearchField search="handleSearchPerson"></SearchField>
                      </Toolbar>
                   </headerToolbar>
                   <columns>
@@ -34,6 +40,9 @@
                      <Column>
                         <Text text="Cognome" />
                      </Column>
+                     <Column>
+                        <Text text="VPL" />
+                     </Column>
                   </columns>
                   <items>
                      <ColumnListItem type="Active">
@@ -41,6 +50,7 @@
                            <ObjectIdentifier title="{CID}" />
                            <Text text="{Nome}"></Text>
                            <Text text="{Cognome}"></Text>
+                           <Text text="{VPL}"></Text>
                         </cells>
                      </ColumnListItem>
                   </items>
@@ -54,13 +64,15 @@
                <Toolbar design="Info">
                   <Title text="{=!${/RaggruppamentiPersona} ? 'Seleziona una persona per visualizzare i raggruppamenti associati' : 'Raggruppamenti' }" level="H2" class="titleAT" />
                </Toolbar>
-               <Table id="raggruppamentoTable" mode="MultiSelect" items="{/RaggruppamentiPersona}" noDataText="Nessun raggruppamento assegnato alla persona {Persona}" width="100%" visible="{=!!${/RaggruppamentiPersona}}">
+               <Table id="raggruppamentoTable" mode="None" items="{/RaggruppamentiPersona}" noDataText="Nessun raggruppamento assegnato alla persona {/Persona/Nome} {/Persona/Cognome}" width="100%" visible="{=!!${/RaggruppamentiPersona}}">
                   <headerToolbar>
                      <Toolbar design="Transparent" width="100%">
-                        <HBox alignItems="Center" direction="Row">
-                           <Text text="Cerca:" width="60px" />
-                           <SearchField search="handleSearchRagg"></SearchField>
-                        </HBox>
+                        <Label text="Cid:" design="Bold" />
+                        <Text text="{/Persona/CID}" />
+                        <Label text="Nome:" design="Bold" />
+                        <Text text="{/Persona/Nome}" />
+                        <Label text="Cognome:" design="Bold" />
+                        <Text text="{/Persona/Cognome}" />
                         <ToolbarSpacer />
                         <Button type="Accept" icon="sap-icon://add" press="addRaggruppamento" />
                      </Toolbar>
@@ -106,13 +118,13 @@
                      <cells>
                         <Select items="{/raggruppamenti/Raggruppamenti}" selectedKey="{key}" enabled="{=!!${Edit}}" change="onChangeRagg">
                            <items>
-                              <core:Item key="{key}" text="{text}"></core:Item>
+                              <core:Item key="{key}" text="{text}" />
                            </items>
                         </Select>
                         <Text text="{Descrizione}" wrapping="true" maxLines="3" />
-                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}"></DatePicker>
-                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}"></DatePicker>
-                        <Text text="{UO}"></Text>
+                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}" />
+                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}" />
+                        <Text text="{UO}" />
                         <Button icon="sap-icon://delete" type="Reject" />
                      </cells>
                   </ColumnListItem>
@@ -121,5 +133,11 @@
 
          </l:Splitter>
       </content>
+      <footer>
+         <Toolbar>
+            <ToolbarSpacer />
+            <Button text="Salva" icon="sap-icon://save" />
+         </Toolbar>
+      </footer>
    </Page>
 </mvc:View>

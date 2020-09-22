@@ -39,6 +39,7 @@ sap.ui.define(
                   '/RaggruppamentiPersona',
                   obj.raggruppamenti
                );
+               dataModel.setProperty('/Persona', obj);
             },
             handleSearchPerson: function (oEvent) {
                var sValue = oEvent.getParameter('query');

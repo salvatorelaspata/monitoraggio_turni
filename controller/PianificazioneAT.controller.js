@@ -93,6 +93,7 @@ sap.ui.define(
                   Nome: '',
                   key: '',
                   Descrizione: '',
+                  ValiditaRaggruppamento: '',
                   ValidoDa: '',
                   ValidoA: '',
                   UO: '',

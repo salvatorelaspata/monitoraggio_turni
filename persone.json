@@ -15,6 +15,7 @@
                "Nome": "Raggruppamento A",
                "key": "rA",
                "Descrizione": "Descr. Raggruppamento A",
+               "ValiditaRaggruppamento": "31/12/9999",
                "ValidoDa": "01/01/2020",
                "ValidoA": "31/08/2020",
                "UO": "Divisione 1"
@@ -23,6 +24,7 @@
                "Nome": "Raggruppamento B",
                "key": "rB",
                "Descrizione": "Descr. Raggruppamento B",
+               "ValiditaRaggruppamento": "31/12/9999",
                "ValidoDa": "01/03/2020",
                "ValidoA": "31/04/2020",
                "UO": "Divisione 1"
@@ -31,6 +33,7 @@
                "Nome": "Raggruppamento C",
                "key": "rC",
                "Descrizione": "Descr. Raggruppamento C",
+               "ValiditaRaggruppamento": "31/12/9999",
                "ValidoDa": "01/07/2020",
                "ValidoA": "31/08/2020",
                "UO": "Divisione 1"
@@ -46,6 +49,7 @@
                "Nome": "Raggruppamento D",
                "key": "rD",
                "Descrizione": "Descr. Raggruppamento D",
+               "ValiditaRaggruppamento": "31/12/9999",
                "ValidoDa": "01/01/2020",
                "ValidoA": "31/12/2020",
                "UO": "Settore 1"
@@ -54,6 +58,7 @@
                "Nome": "Raggruppamento E",
                "key": "rE",
                "Descrizione": "Descr. Raggruppamento E",
+               "ValiditaRaggruppamento": "31/12/9999",
                "ValidoDa": "01/03/2020",
                "ValidoA": "31/04/2020",
                "UO": "Settore 1"
@@ -62,6 +67,7 @@
                "Nome": "Raggruppamento F",
                "key": "rF",
                "Descrizione": "Descr. Raggruppamento F",
+               "ValiditaRaggruppamento": "31/12/9999",
                "ValidoDa": "01/03/2020",
                "ValidoA": "31/12/2020",
                "UO": "Settore 1"

@@ -1,38 +1,49 @@
 .icon-action {
-   font-size: 15px;
+  font-size: 15px;
 }
 
 .icon-type {
-   font-size: 30px;
+  font-size: 30px;
 }
 
 .icon-button > div > span::before {
-   /* color: red; */
+  /* color: red; */
 }
 
-[data-typecolor='/P/'] {
-   color: green;
+[data-typecolor="/P/"] {
+  color: green;
 }
 
-[data-typecolor='/O/'] {
-   color: #031e48;
+[data-typecolor="/O/"] {
+  color: #031e48;
 }
 
-[data-typerow='/O/'] {
-   /* Attribute has this exact value */
+[data-typerow="/O/"] {
+  /* Attribute has this exact value */
 }
-[data-typerow='/P/'] {
-   font-weight: bold;
-   color: green;
+[data-typerow="/P/"] {
+  font-weight: bold;
+  color: green;
 }
-[data-typerow='/R/'] {
-   font-weight: bold;
-   color: #031e48;
+[data-typerow="/R/"] {
+  font-weight: bold;
+  color: #031e48;
 }
 .border-box {
-   border: 1px solid lightgray;
+  border: 1px solid lightgray;
 }
 
 .titleAT {
-   color: white !important;
+  color: white !important;
+}
+
+[id*="indexPage-cont"] {
+  height: auto !important;
+  width: 100%;
+}
+
+.sapMSltArrow {
+  width: 1.5rem !important;
+  line-height: 2.5rem;
+  right: 0;
 }

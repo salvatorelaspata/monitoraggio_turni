@@ -2,7 +2,7 @@
    xmlns:core="sap.ui.core"
    xmlns="sap.m"
    xmlns:l="sap.ui.layout"
-   xmlns:smartTable="sap.ui.comp.smarttable"
+   xmlns:custom="sap.ui.bki.monitoraggio.turni.custom"
    xmlns:html="http://www.w3.org/1999/xhtml"
    controllerName="sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT">
    <Page showHeader="true"
@@ -15,12 +15,13 @@
          <Toolbar>
             <ToolbarSpacer />
             <!-- <Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button> -->
-            <Title text="Data inizio:"></Title>
+            <Title text="Data di riferimento:"></Title>
             <DatePicker id="filterDataInizio"
                width="400px"></DatePicker>
             <ToolbarSpacer />
          </Toolbar>
       </subHeader>
+
       <content>
          <VBox>
             <Toolbar design="Info">
@@ -88,12 +89,28 @@
                                     <cells>
                                        <Text text="{parsedModel>Nome}"/>
                                        <Text text="{parsedModel>Cognome}"/>
-                                       <Text text="{parsedModel>CID}"/>
+                                       <CheckBox selected="false"/>
+                                       <Select change="onChangeRaggruppamento"
+                                          items="{
+                                          path: 'parsedModel>Raggruppamenti',
+                                          templateShareable: false
+                                        }">
+                                          <items>
+                                             <core:Item text="{parsedModel>Nome}"
+                                                key="{parsedModel>Nome}"></core:Item>
+                                          </items>
+                                       </Select>
                                        <Text text="{parsedModel>ValiditaRaggruppamento}"/>
-                                       <Text text="{parsedModel>ValidoDa}"/>
-                                       <Text text="{parsedModel>ValidoA}"/>
-                                       <Text text="{parsedModel>UO}"/>
-                                       <Text text="AZIONI"/>
+                                       <Text text=""/>
+                                       <Text text=""/>
+                                       <Select>
+                                          <items>
+                                             <core:Item text=""
+                                                key=""></core:Item>
+                                             <core:Item text="Elimina"
+                                                key="elimina"></core:Item>
+                                          </items>
+                                       </Select>
                                     </cells>
                                  </ColumnListItem>
                               </items>
@@ -107,9 +124,15 @@
       </content>
       <footer>
          <Toolbar>
+            <ToolbarSpacer/>
             <Button text="Salva"
-               icon="sap-icon://save" />
+               icon="sap-icon://save"
+               type="Accept" />
+            <Button text="Annulla"
+               type="Reject" />
+
          </Toolbar>
       </footer>
+
    </Page>
 </mvc:View>

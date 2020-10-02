@@ -36,6 +36,18 @@ sap.ui.define(
           this.getView().setModel(oModel);
           //  parseLista();
         },
+        onChangeRaggruppamento: function (evt) {
+          var source = evt.getSource();
+          var item = evt.getParameter("selectedItem");
+          var model = item.getModel();
+          var _i = item.getBindingContext("parsedModel").getObject();
+          var row = source.getParent();
+          var path = row.getBindingContext("parsedModel").getPath();
+          var _r = row.getBindingContext("parsedModel").getObject();
+          _r.ValiditaRaggruppamento = _i.ValiditaRaggruppamento;
+          model.setProperty(path, _r);
+          model.refresh(true);
+        },
         // handleSearchPerson: function (oEvent) {
         //    var sValue = oEvent.getParameter('query');
         //    var oFilter = new sap.ui.model.Filter({

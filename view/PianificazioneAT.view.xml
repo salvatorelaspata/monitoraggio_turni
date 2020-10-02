@@ -1,142 +1,114 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:smartTable="sap.ui.comp.smarttable" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT">
-   <Page showHeader="true" showFooter="true" class="sapUiContentPadding" showNavButton="true" navButtonPress="onNavBack" title="Pianificazione addetto ai turni">
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+   xmlns:core="sap.ui.core"
+   xmlns="sap.m"
+   xmlns:l="sap.ui.layout"
+   xmlns:smartTable="sap.ui.comp.smarttable"
+   xmlns:html="http://www.w3.org/1999/xhtml"
+   controllerName="sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT">
+   <Page showHeader="true"
+      showFooter="true"
+      class="sapUiContentPadding"
+      showNavButton="true"
+      navButtonPress="onNavBack"
+      title="Pianificazione addetto ai turni">
       <subHeader>
          <Toolbar>
             <ToolbarSpacer />
             <!-- <Button text="Data Inizio: 01/09/2020 + 3 Mesi" press="onSelectDate" icon="sap-icon://appointment-2" iconFirst="false"></Button> -->
             <Title text="Data inizio:"></Title>
-            <DatePicker id="filterDataInizio" width="400px"></DatePicker>
-            <ToolbarSpacer />
-            <Title text="Data Fine:"></Title>
-            <DatePicker id="filterDataFine" width="400px"></DatePicker>
+            <DatePicker id="filterDataInizio"
+               width="400px"></DatePicker>
             <ToolbarSpacer />
          </Toolbar>
       </subHeader>
       <content>
-         <l:Splitter height="100%" class="sapUiTinyMargin">
-            <VBox>
-
-               <layoutData>
-                  <l:SplitterLayoutData size="30%" resizable="false" />
-               </layoutData>
-               <Toolbar design="Info">
-                  <Title text="Persone" level="H2" class="titleAT" />
-               </Toolbar>
-               <Table id="personTable" mode="SingleSelectMaster" alternateRowColors="true" itemPress="onPressPersona" items="{/persone/Persone}">
-                  <headerToolbar>
-                     <Toolbar design="Transparent" width="100%">
-                        <ToolbarSpacer />
-                        <Text text="Cerca:" width="60px" />
-                        <SearchField search="handleSearchPerson"></SearchField>
-                     </Toolbar>
-                  </headerToolbar>
-                  <columns>
-                     <Column>
-                        <Text text="CID" />
-                     </Column>
-                     <Column>
-                        <Text text="Nome" />
-                     </Column>
-                     <Column>
-                        <Text text="Cognome" />
-                     </Column>
-                     <Column>
-                        <Text text="VPL" />
-                     </Column>
-                  </columns>
-                  <items>
-                     <ColumnListItem type="Active">
-                        <cells>
-                           <ObjectIdentifier title="{CID}" />
-                           <Text text="{Nome}"></Text>
-                           <Text text="{Cognome}"></Text>
-                           <Text text="{VPL}"></Text>
-                        </cells>
-                     </ColumnListItem>
-                  </items>
-               </Table>
-
-            </VBox>
-            <VBox>
-               <layoutData>
-                  <l:SplitterLayoutData size="auto" />
-               </layoutData>
-               <Toolbar design="Info">
-                  <Title text="{=!${/RaggruppamentiPersona} ? 'Seleziona una persona per visualizzare i raggruppamenti associati' : 'Raggruppamenti' }" level="H2" class="titleAT" />
-               </Toolbar>
-               <Table id="raggruppamentoTable" mode="None" items="{/RaggruppamentiPersona}" noDataText="Nessun raggruppamento assegnato alla persona {/Persona/Nome} {/Persona/Cognome}" width="100%" visible="{=!!${/RaggruppamentiPersona}}">
-                  <headerToolbar>
-                     <Toolbar design="Transparent" width="100%">
-                        <Label text="Cid:" design="Bold" />
-                        <Text text="{/Persona/CID}" />
-                        <Label text="Nome:" design="Bold" />
-                        <Text text="{/Persona/Nome}" />
-                        <Label text="Cognome:" design="Bold" />
-                        <Text text="{/Persona/Cognome}" />
-                        <ToolbarSpacer />
-                        <Button type="Accept" icon="sap-icon://add" press="addRaggruppamento" />
-                     </Toolbar>
-                  </headerToolbar>
-                  <columns>
-                     <Column width="15rem">
-                        <header>
-                           <Text text="Raggruppamento" />
-                        </header>
-                     </Column>
-                     <Column width="10em">
-                        <header>
-                           <Text text="Validità Raggruppamento" />
-                        </header>
-                     </Column>
-                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
-                        <header>
-                           <Text text="Inizio Validità" />
-                        </header>
-                     </Column>
-                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
-                        <header>
-                           <Text text="Fine Validità" />
-                        </header>
-                     </Column>
-                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <header>
-                           <Text text="UO di Appartenenza" />
-                        </header>
-                     </Column>
-                     <Column width="35px" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <header>
-                           <Text text="" />
-                        </header>
-                     </Column>
-                     <Column width="35px" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <header>
-                           <Text text="" />
-                        </header>
-                     </Column>
-                  </columns>
-                  <ColumnListItem vAlign="Middle">
-                     <cells>
-                        <Select items="{/raggruppamenti/Raggruppamenti}" selectedKey="{key}" enabled="{=!!${Edit}}" change="onChangeRagg">
-                           <items>
-                              <core:Item key="{key}" text="{text}" />
-                           </items>
-                        </Select>
-                        <Text text="{ValiditaRaggruppamento}" wrapping="true" maxLines="3" />
-                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}" />
-                        <DatePicker valueFormat="dd/MM/yyyy" value="{ValidoDa}" enabled="{=!!${Edit}}" />
-                        <Text text="{UO}" />
-                        <Button icon="sap-icon://delete" type="Reject" />
-                     </cells>
-                  </ColumnListItem>
-               </Table>
-            </VBox>
-
-         </l:Splitter>
+         <VBox>
+            <Toolbar design="Info">
+               <Title text="Persone"
+                  level="H2"
+                  class="titleAT" />
+            </Toolbar>
+            <List id="personTable"
+               items="{parsedModel>/Raggruppamenti}">
+               <headerToolbar>
+                  <Toolbar design="Transparent"
+                     width="100%">
+                     <ToolbarSpacer />
+                     <Text text="Cerca:"
+                        width="60px" />
+                     <SearchField search="handleSearchPerson"></SearchField>
+                  </Toolbar>
+               </headerToolbar>
+               <items>
+                  <CustomListItem >
+                     <Panel expandable="true"
+                        expanded="false">
+                        <headerToolbar>
+                           <Toolbar height="3rem">
+                              <Text text="{parsedModel>Text}" />
+                           </Toolbar>
+                        </headerToolbar>
+                        <content>
+                           <Table id="raggruppamentoTable"
+                              mode="None"
+                              items="{ path: 'parsedModel>Persone', templateShareable:false }">
+                              <columns>
+                                 <Column>
+                                    <Text text="Nome" />
+                                 </Column>
+                                 <Column>
+                                    <Text text="Cognome " />
+                                 </Column>
+                                 <Column>
+                                    <Text text="VPL" />
+                                 </Column>
+                                 <Column>
+                                    <Text text="Raggruppamento " />
+                                 </Column>
+                                 <Column>
+                                    <Text text="Periodo validità raggruppamento" />
+                                 </Column>
+                                 <Column>
+                                    <Text text="Inizio validità associazione" />
+                                 </Column>
+                                 <Column>
+                                    <Text text="Fine validità associazione" />
+                                 </Column>
+                                 <Column>
+                                    <Text text="Azione" />
+                                 </Column>
+                              </columns>
+                              <items>
+                                 <ColumnListItem>
+                                    <customData>
+                                       <core:CustomData key="CID"
+                                          value="{parsedModel>CID}"
+                                          writeToDom="true"/>
+                                    </customData>
+                                    <cells>
+                                       <Text text="{parsedModel>Nome}"/>
+                                       <Text text="{parsedModel>Cognome}"/>
+                                       <Text text="{parsedModel>CID}"/>
+                                       <Text text="{parsedModel>ValiditaRaggruppamento}"/>
+                                       <Text text="{parsedModel>ValidoDa}"/>
+                                       <Text text="{parsedModel>ValidoA}"/>
+                                       <Text text="{parsedModel>UO}"/>
+                                       <Text text="AZIONI"/>
+                                    </cells>
+                                 </ColumnListItem>
+                              </items>
+                           </Table>
+                        </content>
+                     </Panel>
+                  </CustomListItem>
+               </items>
+            </List>
+         </VBox>
       </content>
       <footer>
          <Toolbar>
-            <ToolbarSpacer />
-            <Button text="Salva" icon="sap-icon://save" />
+            <Button text="Salva"
+               icon="sap-icon://save" />
          </Toolbar>
       </footer>
    </Page>

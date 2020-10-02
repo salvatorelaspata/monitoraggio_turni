@@ -1,32 +1,202 @@
 {
-   "Raggruppamenti": [
-      {
-         "key": "rA",
-         "text": "Raggruppamento A"
-      },
-      {
-         "key": "rB",
-         "text": "Raggruppamento B"
-      },
-      {
-         "key": "rC",
-         "text": "Raggruppamento C"
-      },
-      {
-         "key": "rD",
-         "text": "Raggruppamento D"
-      },
-      {
-         "key": "rE",
-         "text": "Raggruppamento E"
-      },
-      {
-         "key": "rF",
-         "text": "Raggruppamento F"
-      },
-      {
-         "key": "rG",
-         "text": "Raggruppamento G"
-      }
-   ]
+  "Raggruppamenti": [
+    {
+      "Key": "rA",
+      "Text": "Raggruppamento A",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento A",
+          "Key": "rA",
+          "Descrizione": "Descr. Raggruppamento A",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        },
+        {
+          "Text": "Raggruppamento A",
+          "Key": "rA",
+          "CID": "001237",
+          "Nome": "Paolo",
+          "Cognome": "Rossini",
+          "Descrizione": "Descr. Raggruppamento A",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        }
+      ]
+    },
+    {
+      "Key": "rB",
+      "Text": "Raggruppamento B",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento B",
+          "key": "rB",
+          "Descrizione": "Descr. Raggruppamento B",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        },
+        {
+          "Text": "Raggruppamento B",
+          "key": "rB",
+          "Descrizione": "Descr. Raggruppamento B",
+          "CID": "001236",
+          "Nome": "Luca",
+          "Cognome": "Bianchi",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/03/2020",
+          "ValidoA": "31/04/2020",
+          "UO": "Divisione 1"
+        }
+      ]
+    },
+    {
+      "Key": "rC",
+      "Text": "Raggruppamento C",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento C",
+          "key": "rC",
+          "Descrizione": "Descr. Raggruppamento C",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        },
+        {
+          "Text": "Raggruppamento C",
+          "key": "rC",
+          "Descrizione": "Descr. Raggruppamento C",
+          "CID": "001236",
+          "Nome": "Luca",
+          "Cognome": "Bianchi",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/07/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        }
+      ]
+    },
+    {
+      "Key": "rD",
+      "Text": "Raggruppamento D",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento D",
+          "key": "rD",
+          "Descrizione": "Descr. Raggruppamento D",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        },
+        {
+          "Text": "Raggruppamento D",
+          "key": "rD",
+          "Descrizione": "Descr. Raggruppamento D",
+          "CID": "001236",
+          "Nome": "Luca",
+          "Cognome": "Bianchi",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/12/2020",
+          "UO": "Settore 1"
+        }
+      ]
+    },
+    {
+      "Key": "rE",
+      "Text": "Raggruppamento E",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento E",
+          "key": "rE",
+          "Descrizione": "Descr. Raggruppamento E",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        },
+        {
+          "Text": "Raggruppamento E",
+          "key": "rE",
+          "Descrizione": "Descr. Raggruppamento E",
+          "CID": "001236",
+          "Nome": "Luca",
+          "Cognome": "Bianchi",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/03/2020",
+          "ValidoA": "31/04/2020",
+          "UO": "Settore 1"
+        }
+      ]
+    },
+    {
+      "Key": "rF",
+      "Text": "Raggruppamento F",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento F",
+          "key": "rF",
+          "Descrizione": "Descr. Raggruppamento F",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        },
+        {
+          "Text": "Raggruppamento F",
+          "key": "rF",
+          "Descrizione": "Descr. Raggruppamento F",
+          "CID": "001237",
+          "Nome": "Paolo",
+          "Cognome": "Rossini",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/03/2020",
+          "ValidoA": "31/12/2020",
+          "UO": "Settore 1"
+        }
+      ]
+    },
+    {
+      "Key": "rG",
+      "Text": "Raggruppamento G",
+      "Persone": [
+        {
+          "CID": "001235",
+          "Nome": "Marco",
+          "Cognome": "Bruni",
+          "Text": "Raggruppamento G",
+          "key": "rG",
+          "Descrizione": "Descr. Raggruppamento G",
+          "ValiditaRaggruppamento": "31/12/9999",
+          "ValidoDa": "01/01/2020",
+          "ValidoA": "31/08/2020",
+          "UO": "Divisione 1"
+        }
+      ]
+    }
+  ]
 }

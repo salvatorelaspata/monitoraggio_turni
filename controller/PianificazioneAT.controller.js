@@ -1,123 +1,158 @@
 sap.ui.define(
-   ['sap/ui/bki/monitoraggio/turni/controller/BaseController'],
-   function (BaseController) {
-      'use strict';
+  ["sap/ui/bki/monitoraggio/turni/controller/BaseController"],
+  function (BaseController) {
+    "use strict";
 
-      return BaseController.extend(
-         'sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT',
-         {
-            onInit: function (evt) {
-               // set mock model
-               var oModelPersone = new sap.ui.model.json.JSONModel({});
-               var sPathPersone = jQuery.sap.getModulePath(
-                  'sap.ui.bki.monitoraggio.turni',
-                  '/persone.json'
-               );
-               oModelPersone.loadData(sPathPersone, '', false);
+    return BaseController.extend(
+      "sap.ui.bki.monitoraggio.turni.controller.PianificazioneAT",
+      {
+        onInit: function (evt) {
+          // set mock model
+          var oModelPersone = new sap.ui.model.json.JSONModel({});
+          //  this.formatter = sap.ui.bki.monitoraggio.turni.Util.Formatter;
+          var sPathPersone = jQuery.sap.getModulePath(
+            "sap.ui.bki.monitoraggio.turni",
+            "/persone.json"
+          );
+          oModelPersone.loadData(sPathPersone, "", false);
 
-               var oModelRagg = new sap.ui.model.json.JSONModel({});
-               var sPathRagg = jQuery.sap.getModulePath(
-                  'sap.ui.bki.monitoraggio.turni',
-                  '/raggruppamenti.json'
-               );
-               oModelRagg.loadData(sPathRagg, '', false);
+          var oModelRagg = new sap.ui.model.json.JSONModel({});
+          var sPathRagg = jQuery.sap.getModulePath(
+            "sap.ui.bki.monitoraggio.turni",
+            "/raggruppamenti.json"
+          );
+          oModelRagg.loadData(sPathRagg, "", false);
 
-               var oModel = new sap.ui.model.json.JSONModel({
-                  raggruppamenti: oModelRagg.getData(),
-                  persone: oModelPersone.getData(),
-               });
-               this.getView().setModel(oModel);
-            },
-            onPressPersona: function (oEvent) {
-               var dataModel = this.getView().getModel();
-               var propertyPath = oEvent
-                  .getSource()
-                  .getSelectedContextPaths()[0];
-               var obj = this.getView().getModel().getProperty(propertyPath);
+          var oModel = new sap.ui.model.json.JSONModel({
+            raggruppamenti: oModelRagg.getData().Raggruppamenti,
+            persone: oModelPersone.getData().Persone,
+          });
+          var parsedModel = new sap.ui.model.json.JSONModel(
+            oModelRagg.getData()
+          );
+          this.model = oModel;
+          this.parsedModel = parsedModel;
+          this.getView().setModel(parsedModel, "parsedModel");
+          this.getView().setModel(oModel);
+          //  parseLista();
+        },
+        // handleSearchPerson: function (oEvent) {
+        //    var sValue = oEvent.getParameter('query');
+        //    var oFilter = new sap.ui.model.Filter({
+        //       filters: [
+        //          new sap.ui.model.Filter(
+        //             'Nome',
+        //             sap.ui.model.FilterOperator.Contains,
+        //             sValue
+        //          ),
+        //          new sap.ui.model.Filter(
+        //             'Cognome',
+        //             sap.ui.model.FilterOperator.Contains,
+        //             sValue
+        //          ),
+        //          ,
+        //          new sap.ui.model.Filter(
+        //             'CID',
+        //             sap.ui.model.FilterOperator.Contains,
+        //             sValue
+        //          ),
+        //       ],
+        //       and: false,
+        //    });
 
-               dataModel.setProperty(
-                  '/RaggruppamentiPersona',
-                  obj.raggruppamenti
-               );
-               dataModel.setProperty('/Persona', obj);
-            },
-            handleSearchPerson: function (oEvent) {
-               var sValue = oEvent.getParameter('query');
-               var oFilter = new sap.ui.model.Filter({
-                  filters: [
-                     new sap.ui.model.Filter(
-                        'Nome',
-                        sap.ui.model.FilterOperator.Contains,
-                        sValue
-                     ),
-                     new sap.ui.model.Filter(
-                        'Cognome',
-                        sap.ui.model.FilterOperator.Contains,
-                        sValue
-                     ),
-                     ,
-                     new sap.ui.model.Filter(
-                        'CID',
-                        sap.ui.model.FilterOperator.Contains,
-                        sValue
-                     ),
-                  ],
-                  and: false,
-               });
+        //    var oBinding = this.getView()
+        //       .byId('personTable')
+        //       .getBinding('items');
 
-               var oBinding = this.getView()
-                  .byId('personTable')
-                  .getBinding('items');
+        //    oBinding.filter([oFilter]);
+        // },
+        // handleSearchRagg: function (oEvent) {
+        //    var sValue = oEvent.getParameter('query');
+        //    var oFilter = new sap.ui.model.Filter(
+        //       'Nome',
+        //       sap.ui.model.FilterOperator.Contains,
+        //       sValue
+        //    );
 
-               oBinding.filter([oFilter]);
-            },
-            handleSearchRagg: function (oEvent) {
-               var sValue = oEvent.getParameter('query');
-               var oFilter = new sap.ui.model.Filter(
-                  'Nome',
-                  sap.ui.model.FilterOperator.Contains,
-                  sValue
-               );
+        //    var oBinding = this.getView()
+        //       .byId('raggruppamentoTable')
+        //       .getBinding('items');
 
-               var oBinding = this.getView()
-                  .byId('raggruppamentoTable')
-                  .getBinding('items');
+        //    oBinding.filter([oFilter]);
+        // },
 
-               oBinding.filter([oFilter]);
-            },
-            addRaggruppamento: function (oEvn) {
-               var dataModel = this.getView().getModel();
-               var dataSource = dataModel.getData();
+        //   parseLista: function () {
+        //     var self = this;
+        //     var data = this.model.getData();
+        //     var persone = data.persone || [];
+        //     var raggruppamenti = data.raggruppamenti;
+        //     var list = [];
 
-               var obj = {
-                  Nome: '',
-                  key: '',
-                  Descrizione: '',
-                  ValiditaRaggruppamento: '',
-                  ValidoDa: '',
-                  ValidoA: '',
-                  UO: '',
-                  Edit: true,
-               };
+        //     var i = 0;
+        //  var p = {
+        //    key: "rA",
+        //    Nome: "Raggruppamento A",
+        //    persone: [
+        //      {
+        //        CID: "001235",
+        //        Nome: "Marco",
+        //        Cognome: "Bruni",
+        //        Nome: "Raggruppamento A",
+        //        key: "rA",
+        //        Descrizione: "Descr. Raggruppamento A",
+        //        ValiditaRaggruppamento: "31/12/9999",
+        //        ValidoDa: "01/01/2020",
+        //        ValidoA: "31/08/2020",
+        //        UO: "Divisione 1",
+        //      },
+        //    ],
+        //  };
 
-               var indexPersone = this.getView()
-                  .byId('personTable')
-                  .getSelectedContextPaths()[0]
-                  .split('/')[3];
+        //     raggruppamenti.forEach(function (rel, pos) {
+        //       var _key = rel.key;
+        //       var _text = rel.text;
+        //       persone.forEach(function (pel, p) {
+        //         var _raggruppamenti = pel.raggruppamenti || [];
+        //         var found = self.findObject(_raggruppamenti, { key: _key });
+        //         if (!found) continue;
 
-               dataSource.persone.Persone[indexPersone].raggruppamenti.push(
-                  obj
-               );
-               dataModel.updateBindings();
-
-               debugger;
-            },
-            deleteRow: function (oEvent) {
-               var oTable = this.getView().byId('raggruppamentoTable');
-               oTable.removeItem(oEvent.getParameter('listItem'));
-            },
-            onChangeRagg: function (oEvn) {},
-         }
-      );
-   }
+        //         var p = {
+        //           key: "rA",
+        //           Nome: "Raggruppamento A",
+        //           persone: [
+        //             {
+        //               CID: "001235",
+        //               Nome: "Marco",
+        //               Cognome: "Bruni",
+        //               Nome: "Raggruppamento A",
+        //               key: "rA",
+        //               Descrizione: "Descr. Raggruppamento A",
+        //               ValiditaRaggruppamento: "31/12/9999",
+        //               ValidoDa: "01/01/2020",
+        //               ValidoA: "31/08/2020",
+        //               UO: "Divisione 1",
+        //             },
+        //           ],
+        //         };
+        //       });
+        //     });
+        //     persone.forEach(function (_el, pos) {
+        //       console.log(_el, pos);
+        //       if (list.length === 0 || list[i].Materiale !== _el.Materiale) {
+        //         var el = self.Formatter.cloneObj(_el);
+        //         if (pos != 0) i++;
+        //         el.header = true;
+        //         el.sub = [];
+        //         list[i] = el;
+        //         list[i].sub.push(_el);
+        //         self.objList[list[i].Materiale] = el;
+        //       } else {
+        //         self.objList[_el.Materiale].sub.push(_el);
+        //       }
+        //     });
+        //     self.pageModel.setProperty("/parsedList", list);
+        //   },
+      }
+    );
+  }
 );

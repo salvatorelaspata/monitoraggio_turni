@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta charset="UTF-8" />
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
 
-      <title>Monitoraggio Turni</title>
+    <title>Monitoraggio Turni</title>
 
-      <script
-         id="sap-ui-bootstrap"
-         src="https://sapui5.hana.ondemand.com/1.28.30/resources/sap-ui-core.js"
-         data-sap-ui-libs="sap.m"
-         data-sap-ui-theme="sap_bluecrystal"
-         data-sap-ui-xx-bindingSyntax="complex"
-         data-sap-ui-preload="async"
-         data-sap-ui-compatVersion="edge"
-         data-sap-ui-resourceroots='{"sap.ui.bki.monitoraggio.turni": "./", "sap.ui.demo.mock": "mockdata"}'
-      ></script>
+    <script
+      id="sap-ui-bootstrap"
+      src="https://sapui5.hana.ondemand.com/1.28.30/resources/sap-ui-core.js"
+      data-sap-ui-libs="sap.m"
+      data-sap-ui-theme="sap_bluecrystal"
+      data-sap-ui-xx-bindingSyntax="complex"
+      data-sap-ui-preload="async"
+      data-sap-ui-compatVersion="edge"
+      data-sap-ui-resourceroots='{"sap.ui.bki.monitoraggio.turni": "./", "sap.ui.demo.mock": "mockdata"}'
+    ></script>
 
-      <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
 
-      <!-- Application launch configuration -->
-      <script>
-         sap.ui.getCore().attachInit(function () {
-            new sap.m.App({
-               pages: [
-                  new sap.m.Page({
-                     //title: 'Shift Planning',
-                     enableScrolling: true,
-                     content: [
-                        new sap.ui.core.ComponentContainer({
-                           height: '100%',
-                           name: 'sap.ui.bki.monitoraggio.turni',
-                        }),
-                     ],
-                     customHeader: [
-                        new sap.m.Bar({
-                           contentLeft: null,
-                           contentMiddle: new sap.m.Title({
-                              text: 'Shift Planning',
-                           }),
-                           contentRight: new sap.ui.core.Icon({
-                              src: 'sap-icon://learning-assistant',
-                              press: function () {
-                                 //link manuale utente
-                              },
-                           }),
-                        }),
-                     ],
+    <!-- Application launch configuration -->
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        new sap.m.App({
+          pages: [
+            new sap.m.Page({
+              //title: 'Shift Planning',
+              enableScrolling: true,
+              content: [
+                new sap.ui.core.ComponentContainer({
+                  height: "100%",
+                  name: "sap.ui.bki.monitoraggio.turni",
+                }),
+              ],
+              customHeader: [
+                new sap.m.Bar({
+                  contentLeft: null,
+                  contentMiddle: new sap.m.Title({
+                    text: "Shift Planning",
                   }),
-               ],
-            }).placeAt('content');
-         });
-      </script>
-   </head>
+                  contentRight: new sap.ui.core.Icon({
+                    src: "sap-icon://learning-assistant",
+                    press: function () {
+                      //link manuale utente
+                    },
+                  }),
+                }),
+              ],
+            }),
+          ],
+        }).placeAt("content");
+      });
+    </script>
+  </head>
 
-   <!-- UI Content -->
-   <body class="sapUiBody" id="content" role="application"></body>
+  <!-- UI Content -->
+  <body class="sapUiBody" id="content" role="application"></body>
 </html>

@@ -14,9 +14,9 @@
           "InizioVPL": "01/01/2020",
           "FineVPL": "02/01/2020",
           "Descrizione": "Descr. Raggruppamento A",
-          "ValiditaRaggruppamento": "Dal 08/09/2020 al 31/12/2021",
-          "Da": "15/09/2020",
-          "A": "31/12/2021",
+          "ValiditaRaggruppamento": "Dal 08/09/2020 Al 31/12/2021",
+          "Da": "15-09-2020",
+          "A": "31-12-2021",
           "UO": "Divisione 1",
           "Raggruppamenti": [
             {},

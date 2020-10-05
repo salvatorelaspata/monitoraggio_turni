@@ -50,8 +50,10 @@ sap.ui.define(
           var row = source.getParent();
           var path = row.getBindingContext("parsedModel").getPath();
           var _r = row.getBindingContext("parsedModel").getObject();
-          _r.ValiditaRaggruppamento =
-            "Dal " + _i.ValidoDa + " Al " + _i.ValidoA;
+
+          _r.ValiditaRaggruppamento = _i.ValidoDa
+            ? "Dal " + _i.ValidoDa + " Al " + _i.ValidoA
+            : "";
           model.setProperty(path, _r);
           // model.refresh(true);
         },

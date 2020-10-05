@@ -123,7 +123,7 @@
                                           textAlign="Center"
                                           value="{parsedModel>Da}"
                                           valueFormat="dd-MM-yyyy"
-                                          displayFormat="short"
+                                          displayFormat="dd-MM-yyyy"
                                           enabled="true"
                                           editable="true"></DatePicker>
                                        <DatePicker placeholder="Seleziona la data"
@@ -131,7 +131,7 @@
                                           value="{parsedModel>A}"
                                           textAlign="Center"
                                           valueFormat="dd-MM-yyyy"
-                                          displayFormat="short"
+                                          displayFormat="dd-MM-yyyy"
                                           enabled="true"
                                           editable="true"></DatePicker>
                                        <Select>

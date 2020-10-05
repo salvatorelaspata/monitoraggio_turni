@@ -55,11 +55,11 @@
                                  <Column width="5%">
                                     <Text text="VPL" />
                                  </Column>
-                                 <Column width="25%">
+                                 <Column width="15%">
                                     <Text text="Raggruppamento" />
                                  </Column>
                                  <Column hAlign="Center"
-                                    width="10%">
+                                    width="20%">
                                     <Text text="Periodo validità raggruppamento" />
                                  </Column>
                                  <Column hAlign="Center"
@@ -111,7 +111,7 @@
                                           templateShareable: false
                                         }">
                                           <items>
-                                             <core:Item text="{= ${parsedModel>Nome} ? (${parsedModel>Nome} +' - Dal '+${parsedModel>ValidoDa}+' al '+${parsedModel>ValidoA}): ''}"
+                                             <core:Item text="{= ${parsedModel>Nome} }"
                                                 key="{parsedModel>key}"></core:Item>
                                           </items>
                                        </Select>

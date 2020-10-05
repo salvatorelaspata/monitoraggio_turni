@@ -31,15 +31,7 @@
             </Toolbar>
             <List id="personTable"
                items="{parsedModel>/Raggruppamenti}">
-               <headerToolbar>
-                  <Toolbar design="Transparent"
-                     width="100%">
-                     <ToolbarSpacer />
-                     <Text text="Cerca:"
-                        width="60px" />
-                     <SearchField search="handleSearchPerson"></SearchField>
-                  </Toolbar>
-               </headerToolbar>
+
                <items>
                   <CustomListItem >
                      <Panel expandable="true"
@@ -54,33 +46,37 @@
                               mode="None"
                               items="{ path: 'parsedModel>Persone', templateShareable:false }">
                               <columns>
-                                 <Column>
+                                 <Column width="15%">
                                     <Text text="Nome" />
                                  </Column>
-                                 <Column>
+                                 <Column width="15%">
                                     <Text text="Cognome " />
                                  </Column>
-                                 <Column>
+                                 <Column width="5%">
                                     <Text text="VPL" />
                                  </Column>
-                                 <Column>
-                                    <Text text="Raggruppamento " />
+                                 <Column width="25%">
+                                    <Text text="Raggruppamento" />
                                  </Column>
-                                 <Column>
+                                 <Column hAlign="Center"
+                                    width="10%">
                                     <Text text="Periodo validità raggruppamento" />
                                  </Column>
-                                 <Column>
+                                 <Column hAlign="Center"
+                                    width="10%">
                                     <Text text="Inizio validità associazione" />
                                  </Column>
-                                 <Column>
+                                 <Column hAlign="Center"
+                                    width="10%">
                                     <Text text="Fine validità associazione" />
                                  </Column>
-                                 <Column>
+                                 <Column width="10%"
+                                    hAlign="Center">
                                     <Text text="Azione" />
                                  </Column>
                               </columns>
                               <items>
-                                 <ColumnListItem>
+                                 <ColumnListItem class="pianificazioneRow">
                                     <customData>
                                        <core:CustomData key="CID"
                                           value="{parsedModel>CID}"
@@ -89,20 +85,55 @@
                                     <cells>
                                        <Text text="{parsedModel>Nome}"/>
                                        <Text text="{parsedModel>Cognome}"/>
-                                       <CheckBox selected="false"/>
-                                       <Select change="onChangeRaggruppamento"
+                                       <CheckBox editable="false"
+                                          class="customMouseOver"
+                                          selected="{parsedModel>VPL}"
+                                          tooltip="{= ${parsedModel>VPL} ? ('Dal '+${parsedModel>InizioVPL}+' al '+${parsedModel>FineVPL}): ''}">
+                                          <!-- <tooltip>
+                                             <custom:CustomTP id="customTooltip">
+                                                <List headerText="Display List on Mouseover" growing="true">
+                                                   <StandardListItem title="testo 1" />
+                                                   <StandardListItem title="testo 2" />
+                                                </List>
+                                             </custom:CustomTP>
+                                          </tooltip> -->
+                                          <customData>
+                                             <core:CustomData key="valid"
+                                                value="{= ${parsedModel>VPL} ? ('Dal '+${parsedModel>InizioVPL}+' al '+${parsedModel>FineVPL}): ''}"
+                                                writeToDom="true"/>
+                                          </customData>
+                                       </CheckBox>
+                                       <Select width="90%"
+                                          selectedKey="{parsedModel>Key}"
+                                          change="onChangeRaggruppamento"
                                           items="{
                                           path: 'parsedModel>Raggruppamenti',
                                           templateShareable: false
                                         }">
                                           <items>
-                                             <core:Item text="{parsedModel>Nome}"
-                                                key="{parsedModel>Nome}"></core:Item>
+                                             <core:Item text="{= ${parsedModel>Nome} ? (${parsedModel>Nome} +' - Dal '+${parsedModel>ValidoDa}+' al '+${parsedModel>ValidoA}): ''}"
+                                                key="{parsedModel>key}"></core:Item>
                                           </items>
                                        </Select>
-                                       <Text text="{parsedModel>ValiditaRaggruppamento}"/>
-                                       <Text text=""/>
-                                       <Text text=""/>
+                                       <Text class="sapUiSmallMarginLeft"
+                                          textAlign="Center"
+                                          text="{parsedModel>ValiditaRaggruppamento}"/>
+                                       <DatePicker placeholder="Seleziona la data"
+                                          width= "95%"
+                                          textAlign="Center"
+                                          value="{parsedModel>Da}"
+                                          valueFormat="dd-MM-yyyy"
+                                          displayFormat="short"
+                                          enabled="true"
+                                          editable="true"></DatePicker>
+                                       <DatePicker placeholder="Seleziona la data"
+                                          width="95%"
+                                          value="{parsedModel>A}"
+                                          textAlign="Center"
+                                          valueFormat="dd-MM-yyyy"
+                                          displayFormat="short"
+                                          enabled="true"
+                                          editable="true"></DatePicker>
                                        <Select>
                                           <items>
                                              <core:Item text=""

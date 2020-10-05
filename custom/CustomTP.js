@@ -1,7 +1,7 @@
 sap.ui.define(
   [
     "sap/ui/core/TooltipBase",
-    "./CustomTPRender", // preload to avoid sync XHR
+    "sap/ui/bki/monitoraggio/turni/custom/CustomTPRender", // preload to avoid sync XHR
   ],
   function (TooltipBase, CustomTPRender) {
     "use strict";

@@ -8,6 +8,12 @@ sap.ui.define(
       {
         onInit: function (evt) {
           // set mock model
+          $("body").on("click", ".customMouseOver", function () {
+            var _e = $(this);
+            var _c = _e.control(0);
+            var _m = _c.data("valid");
+            if (_m.length > 0) sap.m.MessageToast.show(_m);
+          });
           var oModelPersone = new sap.ui.model.json.JSONModel({});
           //  this.formatter = sap.ui.bki.monitoraggio.turni.Util.Formatter;
           var sPathPersone = jQuery.sap.getModulePath(
@@ -39,14 +45,17 @@ sap.ui.define(
         onChangeRaggruppamento: function (evt) {
           var source = evt.getSource();
           var item = evt.getParameter("selectedItem");
-          var model = item.getModel();
+          var model = this.parsedModel;
           var _i = item.getBindingContext("parsedModel").getObject();
           var row = source.getParent();
           var path = row.getBindingContext("parsedModel").getPath();
           var _r = row.getBindingContext("parsedModel").getObject();
           _r.ValiditaRaggruppamento = _i.ValiditaRaggruppamento;
           model.setProperty(path, _r);
-          model.refresh(true);
+          // model.refresh(true);
+        },
+        onAfterRender: function () {
+          var self = this;
         },
         // handleSearchPerson: function (oEvent) {
         //    var sValue = oEvent.getParameter('query');

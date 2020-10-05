@@ -41,9 +41,39 @@
   height: auto !important;
   width: 100%;
 }
-
-.sapMSltArrow {
+.pianificazioneRow .sapMSltArrow {
   width: 1.5rem !important;
-  line-height: 2.5rem;
+  line-height: 1.5rem !important;
   right: 0;
+}
+.pianificazioneRow .sapMSlt > .sapMSltLabel {
+  width: 100%;
+  line-height: 1.375rem !important;
+  font-size: 0.875rem;
+}
+.pianificazioneRow .sapMSlt {
+  height: 1.5rem !important;
+  margin: 0.25rem 0 0.25rem 0;
+  border: 1px solid #c0c0c0;
+}
+.pianificazioneRow .sapMListTblCell {
+  padding: initial !important;
+  vertical-align: middle !important;
+  font-size: 0.875rem;
+}
+
+.pianificazioneRow td {
+  padding: 1rem !important;
+  /* padding-left: 0.3rem !important;
+  padding-right: 0.3rem !important; */
+}
+.pianificazioneRow .sapMInputBaseInner {
+  height: 1.5rem;
+}
+.pianificazioneRow .sapMInputValHelpInner {
+  height: 1.375rem;
+  line-height: 1.375rem;
+}
+.pianificazioneRow .sapMInputBase {
+  height: 2rem;
 }
